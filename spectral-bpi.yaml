@@ -1,0 +1,9 @@
+extends:
+  - ./rules/spectral-oas-rules.yaml
+  - ./rules/spectral-commons-rules.yaml
+  - ./rules/spectral-fill-rules.yaml
+  - ./rules/spectral-schema-rules.yaml
+  - ./rules/spectral-status-code-rules.yaml
+
+functions:
+  - query-parameters-pagination
