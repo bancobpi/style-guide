@@ -1,0 +1,24 @@
+rules:
+  # The API version must be 3.0.0 or higher.
+  bpi-open-api-version-rule:
+    message: "OpenApi MUST be in version 3.0.0 or higher"
+    formats: ["oas2"]
+    severity: "error"
+    given: "$"
+    then:
+      field: openapi
+      function: truthy
+
+  # Metadata extension and attributes needs to exist.
+  bpi-api-metadata-rule:
+    message: "{{property}} extension MUST be present and need to have the attributes id and securityId"
+    formats: ["oas2","oas3"]
+    severity: "error"
+    given: "$"
+    then:
+      - field: x-fast-api-metadata
+        function: truthy
+      - field: x-fast-api-metadata.id
+        function: truthy
+      - field: x-fast-api-metadata.securityId
+        function: truthy

@@ -1,0 +1,313 @@
+rules:
+  # GET or DELETE operations MUST not have BODY in the request;
+  bpi-request-get-no-body-oas3:
+    message: GET or DELETE request MUST NOT accept a request body
+    severity: "error"
+    formats: [oas3]
+    given: $.paths..[get,delete].requestBody
+    then:
+      function: undefined
+
+
+  # Resource paths cant have more than two resources. Good Example: /weather-forecasts/{id}/location Bad Example: /weather-forecasts/{id}/location/{id}
+  bpi-resource-path-depth-max-two:
+    message: "Resource paths exceeded maximun depth of two resources. Example: /weather-forecasts/{id}/location"
+    formats: ["oas2","oas3"]
+    type: style
+    severity: "warn"
+    given: "$.paths[*]~"
+    then:
+      function: pattern
+      functionOptions:
+        match: '^((\/([a-zA-Z0-9]|-)*(\/{[a-zA-Z0-9]*})?){1,2})$'
+
+
+  # Not allowed verbs outside this list [get, put, post or delete].
+  bpi-not-allowed-verbs:
+    message: "The verbs MUST be: [get, put, post or delete] and not: {{property}}."
+    severity: error
+    given: $.paths.*[?(@property !== 'get' && @property !== 'put' && @property !== 'post' && @property !== 'delete' && @property !== 'parameters' )]
+    then:
+      function: undefined
+
+  # When there is a verb with id, the id can`t be other way than "id". Bad Example: idDescription.
+  bpi-id-in-verbs:       
+    message: Resource identifier MUST be id and not {{property}}
+    severity: error
+    given: $.paths[?(@property.indexOf("/{") !== -1 && @property.indexOf("/{id}") == -1)]~
+    then:
+      function: undefined
+
+ # All responses verbs MUST be reference to any resource.
+  bpi-validate-ref-verbs:
+    message: In verbs MUST be references.
+    given: $.paths..responses.[200,201,202,206,400,404,409,500].content.application/json.schema
+    severity: error
+    resolved: false
+    then:
+      field: $ref
+      function: schema
+      functionOptions:
+        schema:
+          items:
+            type: object
+            properties:
+              $ref:
+                type: string
+
+ # In global resources the first object in allOf, MUST be a reference to designLibrary/common-body.yaml
+  bpi-resource-common-body:
+    message: Resource MUST reference($ref) designLibrary/common-body.yaml
+    severity: error
+    given: $.allOf[0]
+    recommended: true
+    type: "style"
+    resolved: false
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          const:
+            "$ref": 'https://stoplight.io/api/v1/projects/bancobpi/commons-api-definitions/nodes/models/common-body.yaml?deref=bundle'
+
+  # HTTP Code 400 response MUST reference designLibrary/error-block-400.yaml
+  bpi-response-http-400:
+    message: Error block MUST reference($ref) designLibrary/error-block-400.yaml
+    severity: error
+    given: $.paths..responses.400.content.application/json.schema
+    recommended: true
+    type: "style"
+    formats: [oas3]
+    resolved: false
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          const:
+            "$ref": 'https://stoplight.io/api/v1/projects/bancobpi/commons-api-definitions/nodes/models/error-block-400.yaml?deref=bundle'
+
+  # HTTP Code 404 response MUST reference designLibrary/error-block-404.yaml
+  bpi-response-http-404:
+    message: Error block MUST reference($ref) designLibrary/error-block-404.yaml
+    severity: error
+    given: $.paths..responses.404.content.application/json.schema
+    recommended: true
+    type: "style"
+    formats: [oas3]
+    resolved: false
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          const:
+            "$ref": 'https://stoplight.io/api/v1/projects/bancobpi/commons-api-definitions/nodes/models/error-block-404.yaml?deref=bundle'
+
+  # HTTP Code 409 response MUST reference designLibrary/error-block-409.yaml
+  bpi-response-http-409:
+    message: Error block MUST reference($ref) designLibrary/error-block-409.yaml
+    severity: error
+    given: $.paths..responses.409.content.application/json.schema
+    recommended: true
+    type: "style"
+    formats: [oas3]
+    resolved: false
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          const:
+            "$ref": 'https://stoplight.io/api/v1/projects/bancobpi/commons-api-definitions/nodes/models/error-block-409.yaml?deref=bundle'
+
+  # HTTP Code 500 response MUST reference designLibrary/error-block-500.yaml
+  bpi-response-http-500:
+    message: Error block MUST reference($ref) designLibrary/error-block-500.yaml
+    severity: error
+    given: $.paths..responses.500.content.application/json.schema
+    recommended: true
+    type: "style"
+    formats: [oas3]
+    resolved: false
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          const:
+            "$ref": 'https://stoplight.io/api/v1/projects/bancobpi/commons-api-definitions/nodes/models/error-block-500.yaml?deref=bundle'
+
+  # Mandatory HTTP codes on GET List e.g: /stores
+  bpi-allowed-get-list-http-code:
+    message: In GET verbs the HTTP codes MUST be [200,206,400,500]
+    severity: error
+    given: $.paths[?(@property.indexOf("/{id}") == -1)]..[?(@property == 'get')].responses
+    then:
+      - field: "200"
+        function: truthy
+      - field: "206"
+        function: truthy
+      - field: "400"
+        function: truthy
+      - field: "500"
+        function: truthy
+
+  # Validate HTTP codes allowed in WhitePaper on GET List.
+  bpi-not-allowed-get-list-http-code:  
+    message: In GET verbs the HTTP codes MUST be [200,206,400,500] and not {{property}}
+    severity: error
+    given: $.paths[?(@property.indexOf("/{id}") == -1)]..[?(@property == 'get')].responses[?(@property !== '200' && @property !== '206' && @property !== '400' && @property !== '500')]~
+    then:
+      function: undefined
+
+  # Mandatory HTTP codes on GET List with ID e.g: /stores/{id}/accounting-days 
+  bpi-allowed-get-list-id-http-code:
+    message: In GET List with ID verbs the HTTP codes MUST be [200,206,400,404,500]
+    severity: error
+    given: $.paths[?(@property.indexOf("/{id}/") !== -1)]..[?(@property == 'get')].responses
+    then:
+      - field: "200"
+        function: truthy
+      - field: "206"
+        function: truthy
+      - field: "400"
+        function: truthy
+      - field: "404"
+        function: truthy
+      - field: "500"
+        function: truthy
+
+  # Validate HTTP codes allowed in WhitePaper on GET List with ID.
+  bpi-not-allowed-get-list-id-http-code:       
+    message: In GET List with ID verbs the HTTP codes MUST be [200,206,400,404,500] and not {{property}}
+    severity: error
+    given: $.paths[?(@property.indexOf("/{id}/") !== -1)]..[?(@property == 'get')].responses[?(@property !== '200' && @property !== '206' && @property !== '400' && @property !== '404' && @property !== '500')]~
+    then:
+      function: undefined
+
+  # Mandatory HTTP codes on GET by ID e.g: /stores/{id}
+  bpi-allowed-get-by-id-http-code:
+    message: In GET by ID verbs the HTTP codes MUST be [200,400,404,500]
+    severity: error
+    given: $.paths[?(@property.indexOf("/{id}") !== -1 && @property.indexOf("/{id}/") == -1)]..[?(@property == 'get')].responses
+    then:
+      - field: "200"
+        function: truthy
+      - field: "400"
+        function: truthy
+      - field: "404"
+        function: truthy
+      - field: "500"
+        function: truthy
+
+  # Validate HTTP codes allowed in WhitePaper on GET by ID.
+  bpi-not-allowed-get-by-id-http-code:   
+    message: In GET by ID verbs the HTTP codes MUST be [200,400,404,500] and not {{property}}
+    severity: error
+    given: $.paths[?(@property.indexOf("/{id}") !== -1 && @property.indexOf("/{id}/") == -1)]..[?(@property == 'get')].responses[?(@property !== '200' && @property !== '400' && @property !== '404' && @property !== '500')]~
+    then:
+      function: undefined
+
+  # Mandatory HTTP codes on PUT
+  bpi-allowed-put-http-code:
+    message: In PUT verbs the HTTP codes MUST be [200,400,404,409,500]
+    severity: error
+    given: $.paths..[?(@property == 'put')].responses
+    then:
+      - field: "200"
+        function: truthy
+      - field: "400"
+        function: truthy
+      - field: "404"
+        function: truthy
+      - field: "409"
+        function: truthy
+      - field: "500"
+        function: truthy
+
+  # Validate HTTP codes allowed in WhitePaper on PUT.
+  bpi-not-allowed-put-http-code:       
+    message: In PUT verbs the HTTP codes MUST be [200,400,404,409,500] and not {{property}}
+    severity: error
+    given: $.paths..[?(@property == 'put')].responses[?(@property !== '200' && @property !== '400' && @property !== '404' && @property !== '409' && @property !== '500')]~
+    then:
+      function: undefined
+
+  # Mandatory HTTP codes on POST
+  bpi-allowed-post-http-code:
+    message: In POST verbs the HTTP codes MUST be [(201 or 202),400,409,500]
+    severity: error
+    given: $.paths[?(@property.indexOf("/{id}/") == -1)]..[?(@property == 'post')].responses
+    then:
+      - field: "400"
+        function: truthy
+      - field: "409"
+        function: truthy
+      - field: "500"
+        function: truthy
+      - functionOptions:    
+          properties:
+            - "201"
+            - "202"
+        function: xor
+
+  # Validate HTTP codes allowed in WhitePaper on POST.
+  bpi-not-allowed-post-http-code:   
+    message: In POST verbs the HTTP codes MUST be [(201 or 202),400,409,500] and not {{property}}
+    severity: error
+    given: $.paths[?(@property.indexOf("/{id}/") == -1)]..[?(@property == 'post')].responses[?(@property !== '201' && @property !== '202' && @property !== '400' && @property !== '409' && @property !== '500')]~
+    then:
+      function: undefined
+
+  # Mandatory HTTP codes on POST by ID
+  bpi-allowed-post-by-id-http-code:
+    message: In POST by ID verbs the HTTP codes MUST be [(201 or 202),400,404,409,500]
+    severity: error
+    given: $.paths[?(@property.indexOf("/{id}/") !== -1)]..[?(@property == 'post')].responses
+    then:
+      - field: "400"
+        function: truthy
+      - field: "404"
+        function: truthy
+      - field: "409"
+        function: truthy
+      - field: "500"
+        function: truthy
+      - functionOptions:    
+          properties:
+            - "201"
+            - "202"
+        function: xor
+
+  # Validate HTTP codes allowed in WhitePaper on POST by ID.
+  bpi-not-allowed-post-by-id-http-code:   
+    message: In POST verbs the HTTP codes MUST be [(201 or 202),400,404,409,500] and not {{property}}
+    severity: error
+    given: $.paths[?(@property.indexOf("/{id}/") !== -1)]..[?(@property == 'post')].responses[?(@property !== '201' && @property !== '202' && @property !== '400' && @property !== '404' && @property !== '409' && @property !== '500')]~
+    then:
+      function: undefined
+
+  # Mandatory HTTP codes on DELETE
+  bpi-allowed-delete-http-code:
+    message: In DELETE verbs the HTTP codes MUST be [(200 or 204),400,404,409,500]
+    severity: error
+    given: $.paths..[?(@property == 'delete')].responses
+    then:
+      - field: "400"
+        function: truthy
+      - field: "404"
+        function: truthy
+      - field: "409"
+        function: truthy
+      - field: "500"
+        function: truthy
+      - functionOptions:    
+          properties:
+            - "200"
+            - "204"
+        function: xor
+
+  # Validate HTTP codes allowed in WhitePaper on DELETE.
+  bpi-not-allowed-delete-http-code:   
+    message: In DELETE verbs the HTTP codes MUST be [(200 or 204),400,404,409,500] and not {{property}}
+    severity: error
+    given: $.paths..[?(@property == 'delete')].responses[?(@property !== '200' && @property !== '204' && @property !== '400' && @property !== '404' && @property !== '409' && @property !== '500')]~
+    then:
+      function: undefined

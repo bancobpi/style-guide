@@ -1,0 +1,42 @@
+rules:
+
+  # Every attribute inside properties SHOULD have the description. With the exception of object types.
+  bpi-resource-attributes-description:
+    message: Model properties SHOULD have a description.
+    severity: "warn"
+    given: $..properties[?(@.type !== "object")]*
+    recommended: true
+    then:
+      field: description
+      function: truthy
+
+  # Every attribute SHOULD have an example.
+  bpi-resource-attributes-examples:
+    description: Model property `examples` SHOULD be present and non-empty string.
+    recommended: true
+    type: style
+    given: $..properties[?(@.type == "string" || @.type == "integer" || @.type == "number")]*
+    then:
+      field: example
+      function: truthy
+
+  # The HTTPs code [200,201,202,206,400,404,409,500] MUST have description and content.
+  bpi-validate-content-in-response-body:
+    message: Verbs MUST have content and description in response body
+    given: $.paths..responses.[200,201,202,206,400,404,409,500]*
+    severity: error
+    then:
+      - field: description
+        function: truthy
+      - field: content
+        function: truthy
+
+  # To pagintation is mandatory have pageNumber e pageSize in queryParameters.
+  bpi-query-parameters-pagination:
+    message: In GET List verbs MUST have queryParameters of Pagination (pageNumber, pageSize)
+    severity: info
+    given: $.paths.*.*.parameters
+    then:
+      function: query-parameters-pagination
+
+
