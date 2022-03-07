@@ -9,7 +9,7 @@
 Guidelines for the API design and development at BPI Bank.
 
 ## Goal
-Esse documento tem como objetivo facilitar o desenho e o desenvolvimento das APIs dentro da instituição BPI.
+O objetivo deste repositório é de fornecer um guia de estilos vivo que auxilie as equipas na modelação das APIs, com validações que poderão ser executadas durante a modelação e durante o build das apis.
 
 ## Questions
 Please contact DSI-Design Authority <dsi-designauthority@gbpi.loc>
