@@ -1,4 +1,4 @@
-# BPI Bank API Guidelines
+# API Guidelines
 
 ----------------------------------------------------------------------------
 
@@ -12,4 +12,4 @@ Guidelines for the API design and development at BPI Bank.
 Esse documento tem como objetivo facilitar o desenho e o desenvolvimento das APIs dentro da instituição BPI.
 
 ## Questions
-Please contact DSI-Design Authority <DSI-DesignAuthority@gbpi.loc>
+Please contact DSI-Design Authority <dsi-designauthority@gbpi.loc>
