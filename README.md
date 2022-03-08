@@ -3,13 +3,13 @@
 ----------------------------------------------------------------------------
 
 <!-- focus: false -->
-![Logo_BPI_CxB.png](./logo_BPI_CxB.png)
+![Logo_BPI_CxB.png](./images/logo_BPI_CxB.png)
 
 ## Description
 Guidelines for the API design and development at BPI Bank.
 
 ## Goal
-O objetivo deste repositório é de fornecer um guia de estilos vivo que auxilie as equipas na modelação das APIs, com validações que poderão ser executadas durante a modelação e durante o build das apis.
+The purpose of this repository is to provide a live style guide that helps teams in API modeling, with validations that can be performed during modeling and during the API lifecycle.
 
 ## Use it
 Create a `.spectral.yml` extending it
