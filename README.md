@@ -3,7 +3,7 @@
 ----------------------------------------------------------------------------
 
 <!-- focus: false -->
-![Logo_BPI_CxB.png](https://stoplight.io/api/v1/projects/cHJqOjExODcyOA/images/qk9hzvosZJU)
+![Logo_BPI_CxB.png](./logo_BPI_CxB.png)
 
 ## Description
 Guidelines for the API design and development at BPI Bank.
