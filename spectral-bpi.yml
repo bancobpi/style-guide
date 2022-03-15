@@ -5,6 +5,3 @@ extends:
   - ./rules/spectral-oas-rules.yml
   - ./rules/spectral-schema-rules.yml
   - ./rules/spectral-status-code-rules.yml
-
-functions:
-  - query-parameters-pagination
