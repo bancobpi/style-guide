@@ -1,7 +1,7 @@
 rules:
   # GET or DELETE operations MUST not have BODY in the request;
   bpi-request-get-or-delete-no-body-oas3:
-    message: GET or DELETE request MUST NOT accept a request body
+    description: GET or DELETE request MUST NOT accept a request body
     severity: "error"
     formats: [oas3]
     given: $.paths..[get,delete].requestBody
@@ -11,7 +11,7 @@ rules:
 
   # Resource paths cant have more than two resources. Good Example: /weather-forecasts/{id}/location Bad Example: /weather-forecasts/{id}/location/{id}
   bpi-resource-path-depth-max-two:
-    message: "Resource paths exceeded maximun depth of two resources. Example: /weather-forecasts/{id}/location"
+    description: "Resource paths exceeded maximun depth of two resources. Example: /weather-forecasts/{id}/location"
     formats: ["oas2","oas3"]
     type: style
     severity: "warn"
@@ -24,7 +24,7 @@ rules:
 
   # Not allowed verbs outside this list [get, put, post or delete].
   bpi-not-allowed-verbs:
-    message: "The verbs MUST be: [get, put, post or delete] and not: {{property}}."
+    description: "The verbs MUST be: [get, put, post or delete] and not: {{property}}."
     severity: error
     given: $.paths.*[?(@property !== 'get' && @property !== 'put' && @property !== 'post' && @property !== 'delete' && @property !== 'parameters' )]
     then:
@@ -32,7 +32,7 @@ rules:
 
   # When there is a verb with id, the id can`t be other way than "id". Bad Example: idDescription.
   bpi-id-in-verbs:       
-    message: Resource identifier MUST be id and not {{property}}
+    description: Resource identifier MUST be id and not {{property}}
     severity: error
     given: $.paths[?(@property.indexOf("/{") !== -1 && @property.indexOf("/{id}") == -1)]~
     then:
@@ -40,7 +40,7 @@ rules:
 
  # All responses verbs MUST be reference to any resource.
   bpi-validate-ref-verbs:
-    message: In verbs MUST be references.
+    description: In verbs MUST be references.
     given: $.paths..responses.[200,201,202,206,400,404,409,500].content.application/json.schema
     severity: error
     resolved: false
@@ -57,7 +57,7 @@ rules:
 
  # In global resources the first object in allOf, MUST be a reference to designLibrary/common-body.yaml
   bpi-resource-common-body:
-    message: Resource MUST reference($ref) designLibrary/common-body.yaml
+    description: Resource MUST reference($ref) designLibrary/common-body.yaml
     severity: error
     given: $.allOf[0]
     recommended: true

@@ -2,7 +2,7 @@ rules:
 
  # HTTP Code 400 response MUST reference designLibrary/error-block-400.yaml
   bpi-response-http-400:
-    message: Error block MUST reference($ref) designLibrary/error-block-400.yaml
+    description: Error block MUST reference($ref) designLibrary/error-block-400.yaml
     severity: error
     given: $.paths..responses.400.content.application/json.schema
     recommended: true
@@ -18,7 +18,7 @@ rules:
 
   # HTTP Code 404 response MUST reference designLibrary/error-block-404.yaml
   bpi-response-http-404:
-    message: Error block MUST reference($ref) designLibrary/error-block-404.yaml
+    description: Error block MUST reference($ref) designLibrary/error-block-404.yaml
     severity: error
     given: $.paths..responses.404.content.application/json.schema
     recommended: true
@@ -34,7 +34,7 @@ rules:
 
   # HTTP Code 409 response MUST reference designLibrary/error-block-409.yaml
   bpi-response-http-409:
-    message: Error block MUST reference($ref) designLibrary/error-block-409.yaml
+    description: Error block MUST reference($ref) designLibrary/error-block-409.yaml
     severity: error
     given: $.paths..responses.409.content.application/json.schema
     recommended: true
@@ -50,7 +50,7 @@ rules:
 
   # HTTP Code 500 response MUST reference designLibrary/error-block-500.yaml
   bpi-response-http-500:
-    message: Error block MUST reference($ref) designLibrary/error-block-500.yaml
+    description: Error block MUST reference($ref) designLibrary/error-block-500.yaml
     severity: error
     given: $.paths..responses.500.content.application/json.schema
     recommended: true
@@ -66,7 +66,7 @@ rules:
 
   # Mandatory HTTP codes on GET List e.g: /stores
   bpi-allowed-get-list-http-code:
-    message: In GET verbs the HTTP codes MUST be [200,206,400,500]
+    description: In GET verbs the HTTP codes MUST be [200,206,400,500]
     severity: error
     given: $.paths[?(@property.indexOf("/{id}") == -1)]..[?(@property == 'get')].responses
     then:
@@ -81,7 +81,7 @@ rules:
 
   # Validate HTTP codes allowed in WhitePaper on GET List.
   bpi-not-allowed-get-list-http-code:  
-    message: In GET verbs the HTTP codes MUST be [200,206,400,500] and not {{property}}
+    description: In GET verbs the HTTP codes MUST be [200,206,400,500] and not {{property}}
     severity: error
     given: $.paths[?(@property.indexOf("/{id}") == -1)]..[?(@property == 'get')].responses[?(@property !== '200' && @property !== '206' && @property !== '400' && @property !== '500')]~
     then:
@@ -89,7 +89,7 @@ rules:
 
   # Mandatory HTTP codes on GET List with ID e.g: /stores/{id}/accounting-days 
   bpi-allowed-get-list-id-http-code:
-    message: In GET List with ID verbs the HTTP codes MUST be [200,206,400,404,500]
+    description: In GET List with ID verbs the HTTP codes MUST be [200,206,400,404,500]
     severity: error
     given: $.paths[?(@property.indexOf("/{id}/") !== -1)]..[?(@property == 'get')].responses
     then:
@@ -106,7 +106,7 @@ rules:
 
   # Validate HTTP codes allowed in WhitePaper on GET List with ID.
   bpi-not-allowed-get-list-id-http-code:       
-    message: In GET List with ID verbs the HTTP codes MUST be [200,206,400,404,500] and not {{property}}
+    description: In GET List with ID verbs the HTTP codes MUST be [200,206,400,404,500] and not {{property}}
     severity: error
     given: $.paths[?(@property.indexOf("/{id}/") !== -1)]..[?(@property == 'get')].responses[?(@property !== '200' && @property !== '206' && @property !== '400' && @property !== '404' && @property !== '500')]~
     then:
@@ -114,7 +114,7 @@ rules:
 
   # Mandatory HTTP codes on GET by ID e.g: /stores/{id}
   bpi-allowed-get-by-id-http-code:
-    message: In GET by ID verbs the HTTP codes MUST be [200,400,404,500]
+    description: In GET by ID verbs the HTTP codes MUST be [200,400,404,500]
     severity: error
     given: $.paths[?(@property.indexOf("/{id}") !== -1 && @property.indexOf("/{id}/") == -1)]..[?(@property == 'get')].responses
     then:
@@ -129,7 +129,7 @@ rules:
 
   # Validate HTTP codes allowed in WhitePaper on GET by ID.
   bpi-not-allowed-get-by-id-http-code:   
-    message: In GET by ID verbs the HTTP codes MUST be [200,400,404,500] and not {{property}}
+    description: In GET by ID verbs the HTTP codes MUST be [200,400,404,500] and not {{property}}
     severity: error
     given: $.paths[?(@property.indexOf("/{id}") !== -1 && @property.indexOf("/{id}/") == -1)]..[?(@property == 'get')].responses[?(@property !== '200' && @property !== '400' && @property !== '404' && @property !== '500')]~
     then:
@@ -137,7 +137,7 @@ rules:
 
   # Mandatory HTTP codes on PUT
   bpi-allowed-put-http-code:
-    message: In PUT verbs the HTTP codes MUST be [200,400,404,409,500]
+    description: In PUT verbs the HTTP codes MUST be [200,400,404,409,500]
     severity: error
     given: $.paths..[?(@property == 'put')].responses
     then:
@@ -154,7 +154,7 @@ rules:
 
   # Validate HTTP codes allowed in WhitePaper on PUT.
   bpi-not-allowed-put-http-code:       
-    message: In PUT verbs the HTTP codes MUST be [200,400,404,409,500] and not {{property}}
+    description: In PUT verbs the HTTP codes MUST be [200,400,404,409,500] and not {{property}}
     severity: error
     given: $.paths..[?(@property == 'put')].responses[?(@property !== '200' && @property !== '400' && @property !== '404' && @property !== '409' && @property !== '500')]~
     then:
@@ -162,7 +162,7 @@ rules:
 
   # Mandatory HTTP codes on POST
   bpi-allowed-post-http-code:
-    message: In POST verbs the HTTP codes MUST be [(201 or 202),400,409,500]
+    description: In POST verbs the HTTP codes MUST be [(201 or 202),400,409,500]
     severity: error
     given: $.paths[?(@property.indexOf("/{id}/") == -1)]..[?(@property == 'post')].responses
     then:
@@ -180,7 +180,7 @@ rules:
 
   # Validate HTTP codes allowed in WhitePaper on POST.
   bpi-not-allowed-post-http-code:   
-    message: In POST verbs the HTTP codes MUST be [(201 or 202),400,409,500] and not {{property}}
+    description: In POST verbs the HTTP codes MUST be [(201 or 202),400,409,500] and not {{property}}
     severity: error
     given: $.paths[?(@property.indexOf("/{id}/") == -1)]..[?(@property == 'post')].responses[?(@property !== '201' && @property !== '202' && @property !== '400' && @property !== '409' && @property !== '500')]~
     then:
@@ -188,7 +188,7 @@ rules:
 
   # Mandatory HTTP codes on POST by ID
   bpi-allowed-post-by-id-http-code:
-    message: In POST by ID verbs the HTTP codes MUST be [(201 or 202),400,404,409,500]
+    description: In POST by ID verbs the HTTP codes MUST be [(201 or 202),400,404,409,500]
     severity: error
     given: $.paths[?(@property.indexOf("/{id}/") !== -1)]..[?(@property == 'post')].responses
     then:
@@ -208,7 +208,7 @@ rules:
 
   # Validate HTTP codes allowed in WhitePaper on POST by ID.
   bpi-not-allowed-post-by-id-http-code:   
-    message: In POST verbs the HTTP codes MUST be [(201 or 202),400,404,409,500] and not {{property}}
+    description: In POST verbs the HTTP codes MUST be [(201 or 202),400,404,409,500] and not {{property}}
     severity: error
     given: $.paths[?(@property.indexOf("/{id}/") !== -1)]..[?(@property == 'post')].responses[?(@property !== '201' && @property !== '202' && @property !== '400' && @property !== '404' && @property !== '409' && @property !== '500')]~
     then:
@@ -216,7 +216,7 @@ rules:
 
   # Mandatory HTTP codes on DELETE
   bpi-allowed-delete-http-code:
-    message: In DELETE verbs the HTTP codes MUST be [(200 or 204),400,404,409,500]
+    description: In DELETE verbs the HTTP codes MUST be [(200 or 204),400,404,409,500]
     severity: error
     given: $.paths..[?(@property == 'delete')].responses
     then:
@@ -236,7 +236,7 @@ rules:
 
   # Validate HTTP codes allowed in WhitePaper on DELETE.
   bpi-not-allowed-delete-http-code:   
-    message: In DELETE verbs the HTTP codes MUST be [(200 or 204),400,404,409,500] and not {{property}}
+    description: In DELETE verbs the HTTP codes MUST be [(200 or 204),400,404,409,500] and not {{property}}
     severity: error
     given: $.paths..[?(@property == 'delete')].responses[?(@property !== '200' && @property !== '204' && @property !== '400' && @property !== '404' && @property !== '409' && @property !== '500')]~
     then:
