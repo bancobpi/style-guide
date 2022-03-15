@@ -15,10 +15,8 @@ The purpose of this repository is to provide a live style guide that helps teams
 Create a `.spectral.yml` and extend `https://raw.githubusercontent.com/bancobpi/style-guide/main/spectral-bpi.yml`
 
 ```yaml
-{  
 extends:
   - 'https://raw.githubusercontent.com/bancobpi/style-guide/main/spectral-bpi.yml'
-}  
 ```
 
 ## Questions
