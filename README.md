@@ -12,7 +12,14 @@ Guidelines for the API design and development at Banco BPI.
 The purpose of this repository is to provide a live style guide that helps teams in API modeling, with validations that can be performed during modeling and during the API lifecycle.
 
 ## Use it
-Create a `.spectral.yml` and extend `spectral-bpi.yml`
+Create a `.spectral.yml` and extend `https://raw.githubusercontent.com/bancobpi/style-guide/main/spectral-bpi.yml`
+
+```yaml
+{  
+extends:
+  - 'https://raw.githubusercontent.com/bancobpi/style-guide/main/spectral-bpi.yml'
+}  
+```
 
 ## Questions
 Please contact DSI-Design Authority <dsi-designauthority@gbpi.loc>
