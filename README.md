@@ -6,7 +6,7 @@
 ![Logo_BPI_CxB.png](./images/logo_BPI_CxB.png)
 
 ## Description
-Guidelines for the API design and development at BPI Bank.
+Guidelines for the API design and development at Banco BPI.
 
 ## Goal
 The purpose of this repository is to provide a live style guide that helps teams in API modeling, with validations that can be performed during modeling and during the API lifecycle.
