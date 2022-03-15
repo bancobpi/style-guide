@@ -37,7 +37,7 @@ rules:
   # To pagintation is mandatory have pageNumber e pageSize in queryParameters.
   bpi-query-parameters-pagination:
     description: In GET List verbs MUST have queryParameters of Pagination (pageNumber, pageSize)
-    severity: info
+    severity: error
     given: $.paths.*.*.parameters
     then:
       function: query-parameters-pagination
