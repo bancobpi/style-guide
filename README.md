@@ -19,9 +19,6 @@ extends:
   - 'https://raw.githubusercontent.com/bancobpi/style-guide/main/spectral-bpi.yml'
 ```
 
-## Questions
-Please contact DSI-Design Authority <dsi-designauthority@gbpi.loc>
-
 ---
 <!-- focus: false -->
 ![Review](https://img.shields.io/badge/last%20review-march%202022-blue)
