@@ -1,6 +1,6 @@
 rules:
   # GET or DELETE operations MUST not have BODY in the request;
-  bpi-request-get-no-body-oas3:
+  bpi-request-get-or-delete-no-body-oas3:
     message: GET or DELETE request MUST NOT accept a request body
     severity: "error"
     formats: [oas3]
