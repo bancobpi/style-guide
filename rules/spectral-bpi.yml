@@ -1,7 +1,0 @@
-extends:
-  - ./rules/spectral-casing-rules.yml
-  - ./rules/spectral-commons-rules.yml
-  - ./rules/spectral-fill-rules.yml
-  - ./rules/spectral-oas-rules.yml
-  - ./rules/spectral-schema-rules.yml
-  - ./rules/spectral-status-code-rules.yml
