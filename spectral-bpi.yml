@@ -1,10 +1,7 @@
 extends:
-  - 'spectral:oas'
   - ./spectral-casing-rules.yml
   - ./spectral-schema-rules.yml
   - ./spectral-status-code-rules.yml
   - ./spectral-fill-rules.yml
   - ./spectral-commons-rules.yml
-
-rules:
-  operation-operationId: error
+  - ./spectral-oas-rules.yml
