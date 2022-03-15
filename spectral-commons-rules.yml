@@ -4,7 +4,7 @@ rules:
     message: "OpenApi MUST be in version 3.0.0 or higher"
     formats: [oas2]
     severity: "error"
-    given: "$"
+    given: $
     then:
       field: openapi
       function: truthy
