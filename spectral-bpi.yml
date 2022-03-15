@@ -1,7 +1,3 @@
 extends:
-  - ./spectral-casing-rules.yml
-  - ./spectral-commons-rules.yml
-  - ./spectral-fill-rules.yml
-  - ./spectral-oas-rules.yml
-  - ./spectral-schema-rules.yml
-  - ./spectral-status-code-rules.yml
+  - https://raw.githubusercontent.com/bancobpi/style-guide/main/spectral-casing-rules.yml
+
