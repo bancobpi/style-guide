@@ -2,3 +2,7 @@ extends:
   - ./spectral-casing-rules.yml
   - ./spectral-schema-rules.yml
   - ./spectral-status-code-rules.yml
+  - spectral:oas
+
+rules:
+  operation-operationId: error
