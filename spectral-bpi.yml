@@ -3,6 +3,7 @@ extends:
   - ./spectral-casing-rules.yml
   - ./spectral-schema-rules.yml
   - ./spectral-status-code-rules.yml
+  - ./spectral-fill-rules.yml
 
 rules:
   operation-operationId: error
