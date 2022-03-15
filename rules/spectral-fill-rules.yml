@@ -1,3 +1,6 @@
+functions:
+  - query-parameters-pagination
+  
 rules:
 
   # Every attribute inside properties SHOULD have the description. With the exception of object types.
