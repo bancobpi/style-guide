@@ -1,4 +1,5 @@
 extends:
+  - 'spectral:oas'
   - ./spectral-casing-rules.yml
   - ./spectral-commons-rules.yml
   - ./spectral-fill-rules.yml
