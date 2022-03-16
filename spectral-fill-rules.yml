@@ -34,9 +34,21 @@ rules:
       - field: content
         function: truthy
 
+  # Get List verbs is mandatory have pageNumber e pageSize in queryParameters.
+  bpi-query-parameters-list:
+    description: "GET List verbs MUST have queryParameters for Pagination (pageNumber, pageSize)"
+    severity: error
+    given: [
+      "$.paths[?(@property.indexOf('/{id}') == -1)].get",
+      "$.paths[?(@property.indexOf('/{id}/') !== -1)].get"
+      ]
+    then:
+      field: parameters
+      function: truthy
+
   # To pagintation is mandatory have pageNumber e pageSize in queryParameters.
   bpi-query-parameters-pagination:
-    description: In GET List verbs MUST have queryParameters of Pagination (pageNumber, pageSize)
+    description: "GET List verbs MUST have queryParameters for Pagination (pageNumber, pageSize)"
     severity: error
     given: $.paths.*.*.parameters
     then:
