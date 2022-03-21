@@ -50,7 +50,7 @@ rules:
   bpi-query-parameters-pagination:
     description: "GET List verbs MUST have queryParameters for Pagination (pageNumber, pageSize)"
     severity: error
-    given: $.paths.*.*.parameters
+    given: $.paths.*.get.parameters
     then:
       function: query-parameters-pagination
 
