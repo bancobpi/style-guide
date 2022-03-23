@@ -1,9 +1,9 @@
-# API Guidelines
-
-----------------------------------------------------------------------------
-
 <!-- focus: false -->
 ![Logo_BPI_CxB.png](https://raw.github.com/bancobpi/general-documentation/master/static/logo_BPI_CxB.png)
+
+---
+
+# API Guidelines
 
 ## Description
 Guidelines for the API design and development at Banco BPI.
@@ -22,5 +22,8 @@ extends:
 ---
 <!-- focus: false -->
 ![Review](https://img.shields.io/badge/last%20review-march%202022-blue)
+<br>
+<!-- focus: false -->
+![Downloads](https://img.shields.io/github/downloads/bancobpi/style-guide/total)
 
 
