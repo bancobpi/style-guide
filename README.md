@@ -22,8 +22,5 @@ extends:
 ---
 <!-- focus: false -->
 ![Review](https://img.shields.io/badge/last%20review-march%202022-blue)
-<br>
-<!-- focus: false -->
-![Downloads](https://img.shields.io/github/downloads/bancobpi/style-guide/total)
 
 
