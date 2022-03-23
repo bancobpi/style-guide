@@ -3,7 +3,7 @@
 ----------------------------------------------------------------------------
 
 <!-- focus: false -->
-![Logo_BPI_CxB.png](./images/logo_BPI_CxB.png)
+![Logo_BPI_CxB.png](https://raw.github.com/bancobpi/general-documentation/master/static/logo_BPI_CxB.png)
 
 ## Description
 Guidelines for the API design and development at Banco BPI.
