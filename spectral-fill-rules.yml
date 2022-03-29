@@ -1,5 +1,6 @@
 functions:
   - query-parameters-pagination
+  - operation-id
   
 rules:
 
