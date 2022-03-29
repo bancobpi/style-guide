@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = (input, context) => {
+module.exports = (input, options, context) => {
   const operationId = input;
   const path = context.path.toString();
   const pathParameters = path.split(",");
