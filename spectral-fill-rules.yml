@@ -54,4 +54,9 @@ rules:
     then:
       function: query-parameters-pagination
 
-
+  # Validate that operation-id is compliant to BPI rules
+  bpi-validate-operation-id:
+    severity: warn
+    given: $.paths..operationId
+    then:
+      function: operation-id
