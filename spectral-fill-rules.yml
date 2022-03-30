@@ -61,3 +61,14 @@ rules:
     given: $.paths..operationId
     then:
       function: operation-id
+
+  # Every attribute of type string and not date, must have the maxlength.
+  bpi-resource-attributes-max-lenght:
+    description: All attributes of type string MUST have maxLenght.
+    recommended: true
+    type: style
+    given: $..properties[?(@.type == "string")]*
+    severity: error
+    then:
+      - field: maxLength
+        function: truthy
