@@ -12,7 +12,7 @@ module.exports = (input, options, context) => {
   }else{
     return [
       {
-        message: "Your http code " + httpCode + " MUST be Design Library reference to " + url
+        message: "Your http code " + httpCode + " MUST reference the Error Block from the Design Library:" + url
       }
     ]
   }
