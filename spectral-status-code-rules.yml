@@ -1,68 +1,16 @@
+functions:
+  - http-erros-code-reference
+
 rules:
 
- # HTTP Code 400 response MUST reference designLibrary/error-block-400.yaml
-  bpi-response-http-400:
-    description: Error block MUST reference($ref) designLibrary/error-block-400.yaml
+  # HTTP Code erros response MUST reference designLibrary/error-block-(httpCode)).yaml 
+  # e.g designLibrary/error-block-400.yaml
+  bpi-http-erros-code-reference:
     severity: error
-    given: $.paths..responses.400.content.application/json.schema
-    recommended: true
-    type: "style"
-    formats: [oas3]
+    given: $.paths..responses[?( @property >= 300 && @property <= 500)].content.application/json.schema.*
     resolved: false
     then:
-      function: schema
-      functionOptions:
-        schema:
-          const:
-            "$ref": 'https://stoplight.io/api/v1/projects/bancobpi/commons-api-definitions/nodes/models/error-block-400.yaml?deref=bundle'
-
-  # HTTP Code 404 response MUST reference designLibrary/error-block-404.yaml
-  bpi-response-http-404:
-    description: Error block MUST reference($ref) designLibrary/error-block-404.yaml
-    severity: error
-    given: $.paths..responses.404.content.application/json.schema
-    recommended: true
-    type: "style"
-    formats: [oas3]
-    resolved: false
-    then:
-      function: schema
-      functionOptions:
-        schema:
-          const:
-            "$ref": 'https://stoplight.io/api/v1/projects/bancobpi/commons-api-definitions/nodes/models/error-block-404.yaml?deref=bundle'
-
-  # HTTP Code 409 response MUST reference designLibrary/error-block-409.yaml
-  bpi-response-http-409:
-    description: Error block MUST reference($ref) designLibrary/error-block-409.yaml
-    severity: error
-    given: $.paths..responses.409.content.application/json.schema
-    recommended: true
-    type: "style"
-    formats: [oas3]
-    resolved: false
-    then:
-      function: schema
-      functionOptions:
-        schema:
-          const:
-            "$ref": 'https://stoplight.io/api/v1/projects/bancobpi/commons-api-definitions/nodes/models/error-block-409.yaml?deref=bundle'
-
-  # HTTP Code 500 response MUST reference designLibrary/error-block-500.yaml
-  bpi-response-http-500:
-    description: Error block MUST reference($ref) designLibrary/error-block-500.yaml
-    severity: error
-    given: $.paths..responses.500.content.application/json.schema
-    recommended: true
-    type: "style"
-    formats: [oas3]
-    resolved: false
-    then:
-      function: schema
-      functionOptions:
-        schema:
-          const:
-            "$ref": 'https://stoplight.io/api/v1/projects/bancobpi/commons-api-definitions/nodes/models/error-block-500.yaml?deref=bundle'
+      function: http-erros-code-reference
 
   # Mandatory HTTP codes on GET List e.g: /stores
   bpi-allowed-get-list-http-code:
