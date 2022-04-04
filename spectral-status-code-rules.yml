@@ -1,5 +1,5 @@
 functions:
-  - http-erros-code-reference
+  - http-error-code-reference
 
 rules:
 
@@ -10,7 +10,7 @@ rules:
     given: $.paths..responses[?( @property >= 300 && @property <= 500)].content.application/json.schema.*
     resolved: false
     then:
-      function: http-erros-code-reference
+      function: http-error-code-reference
 
   # Mandatory HTTP codes on GET List e.g: /stores
   bpi-allowed-get-list-http-code:
