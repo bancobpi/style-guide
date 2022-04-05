@@ -4,10 +4,9 @@ functions:
 rules:
 
   # HTTP Code erros response MUST reference designLibrary/error-block-(httpCode)).yaml 
-  # e.g designLibrary/error-block-400.yaml
-  bpi-http-erros-code-reference:
+  bpi-http-error-code-reference:
     severity: error
-    given: $.paths..responses[?( @property >= 300 && @property <= 500)].content.application/json.schema.*
+    given: $.paths..responses[?( @property >= 400 && @property <= 500)].content.application/json.schema.*
     resolved: false
     then:
       function: http-error-code-reference
