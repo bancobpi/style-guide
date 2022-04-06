@@ -1,5 +1,5 @@
 rules:
-  # GET or DELETE operations MUST not have BODY in the request;
+  # GET or DELETE operations MUST not have BODY in the request.
   bpi-request-get-or-delete-no-body-oas3:
     description: GET or DELETE request MUST NOT accept a request body
     severity: "error"
@@ -9,7 +9,7 @@ rules:
       function: undefined
 
 
-  # Resource paths cant have more than two resources. Good Example: /weather-forecasts/{id}/location Bad Example: /weather-forecasts/{id}/location/{id}
+  # Resource paths cant have more than two resources.
   bpi-resource-path-depth-max-two:
     description: "Resource paths exceeded maximun depth of two resources. Example: /weather-forecasts/{id}/location"
     formats: ["oas2","oas3"]
@@ -30,7 +30,7 @@ rules:
     then:
       function: undefined
 
-  # When there is a verb with id, the id can`t be other way than "id". Bad Example: idDescription.
+  # When there is a verb with id, the id can`t be other way than "id".
   bpi-id-in-verbs:       
     description: Resource identifier MUST be id and not {{property}}
     severity: error
@@ -55,7 +55,7 @@ rules:
               $ref:
                 type: string
 
- # In global resources the first object in allOf, MUST be a reference to designLibrary/common-body.yaml
+ # In global resources the first object in allOf, MUST be a reference to designLibrary/common-body.yaml.
   bpi-resource-common-body:
     description: Resource MUST reference($ref) designLibrary/common-body.yaml
     severity: error

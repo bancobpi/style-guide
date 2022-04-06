@@ -4,7 +4,7 @@ functions:
   
 rules:
 
-  # Every attribute inside properties SHOULD have the description. With the exception of object types.
+  # Every attribute inside properties SHOULD have the description.
   bpi-resource-attributes-description:
     description: Model properties SHOULD have a description.
     severity: "warn"
@@ -24,7 +24,7 @@ rules:
       field: example
       function: truthy
 
-  # The HTTPs code [200,201,202,206,400,404,409,500] MUST have description and content.
+  # The HTTP codes [200,201,202,206,400,404,409,500] MUST have description and content.
   bpi-validate-content-in-response-body:
     description: Verbs MUST have content and description in response body
     given: $.paths..responses.[200,201,202,206,400,404,409,500]*
@@ -35,9 +35,9 @@ rules:
       - field: content
         function: truthy
 
-  # Get List verbs is mandatory have pageNumber e pageSize in queryParameters.
+  # Get List verbs is mandatory have queryParameters.
   bpi-query-parameters-list:
-    description: "GET List verbs MUST have queryParameters for Pagination (pageNumber, pageSize)"
+    description: "GET List verbs MUST have queryParameters"
     severity: error
     given: [
       "$.paths[?(@property.indexOf('/{id}') == -1)].get",
@@ -55,7 +55,7 @@ rules:
     then:
       function: query-parameters-pagination
 
-  # Validate that operation-id is compliant to BPI rules
+  # Validate that operation-id is compliant to BPI rules.
   bpi-validate-operation-id:
     severity: error
     given: $.paths..operationId
