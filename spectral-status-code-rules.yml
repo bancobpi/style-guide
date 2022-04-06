@@ -3,7 +3,7 @@ functions:
 
 rules:
 
-  # HTTP Code erros response MUST reference designLibrary/error-block-(httpCode)).yaml 
+  # HTTP Code erros response MUST reference designLibrary/error-block-(httpCode)).yaml.
   bpi-http-error-code-reference:
     severity: error
     given: $.paths..responses[?( @property >= 400 && @property <= 500)].content.application/json.schema.*
@@ -11,7 +11,7 @@ rules:
     then:
       function: http-error-code-reference
 
-  # Mandatory HTTP codes on GET List e.g: /stores
+  # Mandatory HTTP codes on GET List.
   bpi-allowed-get-list-http-code:
     description: In GET verbs the HTTP codes MUST be [200,206,400,500]
     severity: error
@@ -34,7 +34,7 @@ rules:
     then:
       function: undefined
 
-  # Mandatory HTTP codes on GET List with ID e.g: /stores/{id}/accounting-days 
+  # Mandatory HTTP codes on GET List with ID. 
   bpi-allowed-get-list-id-http-code:
     description: In GET List with ID verbs the HTTP codes MUST be [200,206,400,404,500]
     severity: error
@@ -59,7 +59,7 @@ rules:
     then:
       function: undefined
 
-  # Mandatory HTTP codes on GET by ID e.g: /stores/{id}
+  # Mandatory HTTP codes on GET by ID.
   bpi-allowed-get-by-id-http-code:
     description: In GET by ID verbs the HTTP codes MUST be [200,400,404,500]
     severity: error
@@ -82,7 +82,7 @@ rules:
     then:
       function: undefined
 
-  # Mandatory HTTP codes on PUT
+  # Mandatory HTTP codes on PUT.
   bpi-allowed-put-http-code:
     description: In PUT verbs the HTTP codes MUST be [200,400,404,409,500]
     severity: error
@@ -107,7 +107,7 @@ rules:
     then:
       function: undefined
 
-  # Mandatory HTTP codes on POST
+  # Mandatory HTTP codes on POST.
   bpi-allowed-post-http-code:
     description: In POST verbs the HTTP codes MUST be [(201 or 202),400,409,500]
     severity: error
@@ -133,7 +133,7 @@ rules:
     then:
       function: undefined
 
-  # Mandatory HTTP codes on POST by ID
+  # Mandatory HTTP codes on POST with ID.
   bpi-allowed-post-by-id-http-code:
     description: In POST by ID verbs the HTTP codes MUST be [(201 or 202),400,404,409,500]
     severity: error
@@ -153,7 +153,7 @@ rules:
             - "202"
         function: xor
 
-  # Validate HTTP codes allowed in WhitePaper on POST by ID.
+  # Validate HTTP codes allowed in WhitePaper on POST with ID.
   bpi-not-allowed-post-by-id-http-code:   
     description: In POST verbs the HTTP codes MUST be [(201 or 202),400,404,409,500] and not {{property}}
     severity: error
@@ -161,7 +161,7 @@ rules:
     then:
       function: undefined
 
-  # Mandatory HTTP codes on DELETE
+  # Mandatory HTTP codes on DELETE.
   bpi-allowed-delete-http-code:
     description: In DELETE verbs the HTTP codes MUST be [(200 or 204),400,404,409,500]
     severity: error

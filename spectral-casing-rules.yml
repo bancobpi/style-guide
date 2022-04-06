@@ -27,7 +27,7 @@ rules:
       functionOptions:
         type: kebab
 
-  # All attributes inside properties MUST be in camelCase; exception for _links;
+  # All attributes inside properties MUST be in camelCase.
   bpi-resource-attributes-camel-case:
     description: Attributes MUST be camelCase.
     type: style
@@ -38,7 +38,7 @@ rules:
       functionOptions:
         type: camel
 
-  #The parameters value must be camelCase.
+  # The parameters value must be camelCase.
   bpi-parameters-camel-case:
     description: Parameters MUST be camelCase.
     severity: error
