@@ -6,7 +6,7 @@ When designing a **GET** or **DELETE** verbs it must **NOT CONTAIN** the body in
 
 The figure below shows where the body is but in the case of get and delete it will not be created. The idea of the image is just to show where it is.
 
-![bpi-request-get-or-delete-no-body-oas3](https://stoplight.io/api/v1/projects/cHJqOjEyNTMyNw/images/mRCzTT04IdM)
+![bpi-request-get-or-delete-no-body-oas3](https://raw.github.com/bancobpi/style-guide/master/static/bpi-request-get-or-delete-no-body-oas3.jpg)
 
 ## bpi-resource-path-depth-max-two
 
@@ -36,10 +36,10 @@ Path | Obs
 
 When designing the paths, we only accept the following http codes [200,201,202,206,400,404,409,500] and every response using these http codes must be a reference to a previously created resource. That is, it will always be a reference.
 
-![bpi-validate-ref-verbs](https://stoplight.io/api/v1/projects/cHJqOjEyNTMyNw/images/PaL2tpxDxm0)
+![bpi-validate-ref-verbs](https://raw.github.com/bancobpi/style-guide/master/static/bpi-validate-ref-verbs.jpg)
 
 ## bpi-resource-common-body
 
 In the API design we show that we have two types of resources. The ones at the top left are the global ones, and the ones at the bottom left are the paging ones. All global resources must be an allOf and the first object be the reference to designLibrary/common-body.
 
-![bpi-resource-common-body](https://stoplight.io/api/v1/projects/cHJqOjEyNTMyNw/images/NXYpTRTWxpA)
+![bpi-resource-common-body](https://raw.github.com/bancobpi/style-guide/master/static/bpi-resource-common-body.jpg)

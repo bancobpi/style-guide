@@ -25,9 +25,7 @@ The kebab case approach became popular in Web URIs because search engines knew t
 
 It is recommended to use the kebab-case (which is highlighted by RFC3986), this case is used by Google, PayPal, and other big companies.
 
-![bpi-kebab-case-resource-name](https://stoplight.io/api/v1/projects/cHJqOjEyNTMyNw/images/MqVZZke6TaI)
-
-![bpi-kebab-case-resource-name](https://raw.github.com/bancobpi/style-guide/master/static/bpi-kebab-case-resource-name.jpg)
+![bpi-kebab-case-resource-name](https://raw.github.com/bancobpi/style-guide/master/static/bpi-resource-name-kebab-case.jpg)
 
 ## bpi-resources-kebab-case
 
@@ -35,7 +33,7 @@ We adopted the kebab-case pattern to be between the resource and the path, since
 
 It is recommended to use the kebab-case (which is highlighted by RFC3986), this case is used by Google, PayPal, and other big companies.
 
-![bpi-resources-kebab-case](https://stoplight.io/api/v1/projects/cHJqOjEyNTMyNw/images/N8p5jhreO8Y)
+![bpi-resources-kebab-case](https://raw.github.com/bancobpi/style-guide/master/static/bpi-resources-kebab-case.jpg)
 
 ## bpi-resource-attributes-camel-case
 
@@ -43,16 +41,16 @@ We adopted the standard used by [Google](https://google.github.io/styleguide/jso
 
 "_links" attribute is the exception at BPI.
 
-![bpi-resource-attributes-camel-case](https://stoplight.io/api/v1/projects/cHJqOjEyNTMyNw/images/sPnCPs8wQf8)
+![bpi-resource-attributes-camel-case](https://raw.github.com/bancobpi/style-guide/master/static/bpi-resource-attributes-camel-case.jpg)
 
 ## bpi-parameters-camel-case
 
 Following the same pattern of the attributes, we decided that the parameters followed as camelCase.
 
-![bpi-parameters-camel-case](https://stoplight.io/api/v1/projects/cHJqOjEyNTMyNw/images/xApnhCXRiHY)
+![bpi-parameters-camel-case](https://raw.github.com/bancobpi/style-guide/master/static/bpi-parameters-camel-case.jpg)
 
 ## bpi-enum-snake-case
 
 With enumerations, we had some doubts because there are several different approaches. And in our case after doing a research we decided as snake-case.
 
-![bpi-enum-snake-case](https://stoplight.io/api/v1/projects/cHJqOjEyNTMyNw/images/OUl4Z1Ba1o8)
+![bpi-enum-snake-case](https://raw.github.com/bancobpi/style-guide/master/static/bpi-enum-snake-case.jpg)
