@@ -10,7 +10,9 @@ The figure below shows where the body is but in the case of get and delete it wi
 
 ## bpi-resource-path-depth-max-two
 
-We decided to have a maximum of two resources in path. Below we have two examples, one bad and one good.
+A path must have a maximum of two resources in depth to keep the APIs easier to call. Having more than two resources in depth could bring more validation issues with few benefits.
+
+Below we have two examples, one bad and one good
 
 Path | Obs 
 ---------|----------|
