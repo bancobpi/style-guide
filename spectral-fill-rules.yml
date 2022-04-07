@@ -39,7 +39,6 @@ rules:
 
   bpi-query-parameters-pagination:
     description: To pagintation is mandatory have `pageNumber` e `pageSize` in queryParameters.
-    message: GET list verbs MUST have at least queryParameters for pagination.
     documentationUrl: https://bancobpi.stoplight.io/studio/style-guide#bpi-query-parameters-pagination
     severity: error
     given: $.paths.*.get.parameters
