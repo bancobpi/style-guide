@@ -40,6 +40,6 @@ When designing the paths, we only accept the following http codes [200,201,202,2
 
 ## bpi-resource-common-body
 
-In the API design we show that we have two types of resources. The ones at the top left are the global ones, and the ones at the bottom left are the paging ones. All global resources must be an allOf and the first object be the reference to designLibrary/common-body.
+To maintain a standard design for our APIs, there are two main type of resources to reference. The ones at the top left are the global ones, and the ones at the bottom left are the pagination ones. All global resources must be an allOf and the first object be the reference to designLibrary/common-body
 
 ![bpi-resource-common-body](https://raw.github.com/bancobpi/style-guide/master/static/bpi-resource-common-body.jpg)
