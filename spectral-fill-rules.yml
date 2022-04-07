@@ -34,21 +34,9 @@ rules:
       - field: content
         function: truthy
 
-  bpi-query-parameters-list:
-    description: Get List verbs is mandatory have queryParameters.
-    message: GET List verbs MUST have queryParameters.
-    severity: error
-    given: [
-      "$.paths[?(@property.indexOf('/{id}') == -1)].get",
-      "$.paths[?(@property.indexOf('/{id}/') !== -1)].get"
-      ]
-    then:
-      field: parameters
-      function: truthy
-
   bpi-query-parameters-pagination:
-    description: To pagintation is mandatory have pageNumber e pageSize in queryParameters.
-    message: GET List verbs MUST have queryParameters for Pagination (pageNumber, pageSize)
+    description: To pagintation is mandatory have `pageNumber` e `pageSize` in queryParameters.
+    message: GET list verbs MUST have at least queryParameters for pagination.
     severity: error
     given: $.paths.*.get.parameters
     then:
