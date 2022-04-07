@@ -21,9 +21,7 @@ Path | Obs
 
 ## bpi-not-allowed-verbs
 
-Within our institution at this very moment it is only possible to use verbs [get, put, post or delete]. We believe that in the near future, it will be possible to make use of PATH.
-
-If a different verb is used, an error message will be generated.
+At this moment it is only possible to use verbs [get, put, post or delete]. If a different verb is used, an error message will be generated.
 
 ## bpi-id-in-verbs
 
