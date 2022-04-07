@@ -24,8 +24,8 @@ rules:
       function: truthy
 
   bpi-validate-content-in-response-body:
-    description: The HTTP codes [200,201,202,206,400,404,409,500] MUST have content and description.
-    message: Verbs MUST have content and description in response body.
+    description: The HTTP codes [200,201,202,206,400,404,409,500] MUST have description and content.
+    message: Verbs MUST have description and content in response body.
     given: $.paths..responses.[200,201,202,206,400,404,409,500]*
     severity: error
     then:
