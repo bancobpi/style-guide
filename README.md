@@ -19,6 +19,10 @@ extends:
   - 'https://raw.githubusercontent.com/bancobpi/style-guide/main/spectral-bpi.yml'
 ```
 
+## Questions & Suggestions
+
+Please contact api.design.authority@bancobpi.pt
+
 ---
 <!-- focus: false -->
 ![Review](https://img.shields.io/badge/last%20review-march%202022-blue)
