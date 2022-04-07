@@ -19,6 +19,10 @@ extends:
   - 'https://raw.githubusercontent.com/bancobpi/style-guide/main/spectral-bpi.yml'
 ```
 
+## Rules Specification
+
+The [specification](./specification-rules.md) of each rule.
+
 ## Questions & Suggestions
 
 Please contact api.design.authority@bancobpi.pt
