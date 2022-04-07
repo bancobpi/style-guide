@@ -21,7 +21,7 @@ extends:
 
 ## Rules Specification
 
-A [specification](./specification-rules.md) of each rule.
+The [specification](./specification-rules.md) of each rule.
 
 ## Questions & Suggestions
 
