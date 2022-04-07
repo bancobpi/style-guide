@@ -40,6 +40,6 @@ Each operation must have an operationId that is its path, with - instead of / an
 
 ## bpi-resource-attributes-max-lenght
 
-Due to some restrictions, we decided that all strings must have maxLenght.
+In order to limit the size of the payload, every string attribute must have a max length validation.
 
 ![bpi-resource-attributes-max-lenght](https://raw.github.com/bancobpi/style-guide/main/static/bpi-resource-attributes-max-lenght.jpg)
