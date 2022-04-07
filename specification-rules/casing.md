@@ -19,13 +19,13 @@ Kebab Case: accounting-days, customer-address, customer-contacts.
 
 ## bpi-resource-name-kebab-case
 
-In OpenAPI terms, a Path is a endpoint of a REST API that you can call and operations are the HTTP methods used to manipulate these paths, such as GET, PUT, POST or DELETE.
+In OpenAPI terms, a Path is an endpoint of a REST API that you can call and operations are the HTTP methods used to manipulate these paths, such as GET, PUT, POST or DELETE.
 
 The kebab case approach became popular in Web URIs because search engines knew that the hyphen meant separate words and could index the URI properly.
 
 It is recommended to use the kebab-case (which is highlighted by RFC3986), this case is used by Google, PayPal, and other big companies.
 
-![bpi-kebab-case-resource-name](https://raw.github.com/bancobpi/style-guide/master/static/bpi-resource-name-kebab-case.jpg)
+![bpi-kebab-case-resource-name](https://raw.github.com/bancobpi/style-guide/main/static/bpi-resource-name-kebab-case.jpg)
 
 ## bpi-resources-kebab-case
 
@@ -33,7 +33,7 @@ We adopted the kebab-case pattern to be between the resource and the path, since
 
 It is recommended to use the kebab-case (which is highlighted by RFC3986), this case is used by Google, PayPal, and other big companies.
 
-![bpi-resources-kebab-case](https://raw.github.com/bancobpi/style-guide/master/static/bpi-resources-kebab-case.jpg)
+![bpi-resources-kebab-case](https://raw.github.com/bancobpi/style-guide/main/static/bpi-resources-kebab-case.jpg)
 
 ## bpi-resource-attributes-camel-case
 
@@ -41,16 +41,16 @@ We adopted the standard used by [Google](https://google.github.io/styleguide/jso
 
 "_links" attribute is the exception at BPI.
 
-![bpi-resource-attributes-camel-case](https://raw.github.com/bancobpi/style-guide/master/static/bpi-resource-attributes-camel-case.jpg)
+![bpi-resource-attributes-camel-case](https://raw.github.com/bancobpi/style-guide/main/static/bpi-resource-attributes-camel-case.jpg)
 
 ## bpi-parameters-camel-case
 
-Following the same pattern of the attributes, we decided that the parameters followed as camelCase.
+Following the same pattern of the attributes, we decided that the parameters must be in camelCase.
 
-![bpi-parameters-camel-case](https://raw.github.com/bancobpi/style-guide/master/static/bpi-parameters-camel-case.jpg)
+![bpi-parameters-camel-case](https://raw.github.com/bancobpi/style-guide/main/static/bpi-parameters-camel-case.jpg)
 
 ## bpi-enum-snake-case
 
-With enumerations, we had some doubts because there are several different approaches. And in our case after doing a research we decided as snake-case.
+Following what seems to be one of the main standards, enumeration entries must be in snake_case
 
-![bpi-enum-snake-case](https://raw.github.com/bancobpi/style-guide/master/static/bpi-enum-snake-case.jpg)
+![bpi-enum-snake-case](https://raw.github.com/bancobpi/style-guide/main/static/bpi-enum-snake-case.jpg)

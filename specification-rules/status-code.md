@@ -6,7 +6,7 @@ We have a designLibrary that contains all the error blocks we will need. In this
 
 Example: Http 400, we have error block 400.
 
-![bpi-http-error-code-reference](https://raw.github.com/bancobpi/style-guide/master/static/bpi-http-error-code-reference.jpg)
+![bpi-http-error-code-reference](https://raw.github.com/bancobpi/style-guide/main/static/bpi-http-error-code-reference.jpg)
 
 ## bpi-allowed-get-list-http-code
 
