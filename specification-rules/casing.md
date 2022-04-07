@@ -27,6 +27,8 @@ It is recommended to use the kebab-case (which is highlighted by RFC3986), this 
 
 ![bpi-kebab-case-resource-name](https://stoplight.io/api/v1/projects/cHJqOjEyNTMyNw/images/MqVZZke6TaI)
 
+![bpi-kebab-case-resource-name](https://raw.github.com/bancobpi/style-guide/master/static/bpi-kebab-case-resource-name.jpg)
+
 ## bpi-resources-kebab-case
 
 We adopted the kebab-case pattern to be between the resource and the path, since for the path it is more common to use kebab-case because it is the composition of the API endpoint.
