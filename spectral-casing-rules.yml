@@ -1,7 +1,7 @@
 rules:
-  # All resources paths must be kebab-cased.
-  bpi-kebab-case-resource-name-rule:
-    description: Resource paths MUST be kebab-cased.
+  bpi-kebab-case-resource-name:
+    description: All resources paths must be kebab-cased.
+    message: Resource paths MUST be kebab-cased.
     formats: ["oas2","oas3"]
     type: style
     severity: "error"
@@ -11,9 +11,9 @@ rules:
       functionOptions:
         match: '^(\/([a-z0-9]*)(-[a-z0-9]+)*(\/{[a-zA-Z0-9]*})?)+$'
 
-  # All resources must be kebab-case.
   bpi-resources-kebab-case:
-    description: Resources MUST be kebab-cased.
+    description: All resources must be kebab-case.
+    message: Resources MUST be kebab-cased.
     severity: "error"
     type: style
     given: [
@@ -27,9 +27,9 @@ rules:
       functionOptions:
         type: kebab
 
-  # All attributes inside properties MUST be in camelCase.
   bpi-resource-attributes-camel-case:
-    description: Attributes MUST be camelCase.
+    description: All attributes inside properties MUST be in camelCase.
+    message: Attributes MUST be camelCase.
     type: style
     severity: "error"
     given: $..properties[?(@property !== "_links")]~
@@ -38,9 +38,9 @@ rules:
       functionOptions:
         type: camel
 
-  # The parameters value must be camelCase.
   bpi-parameters-camel-case:
-    description: Parameters MUST be camelCase.
+    description: The parameters value must be camelCase.
+    message: Parameters MUST be camelCase.
     severity: error
     given: $.paths.*.*.parameters.*.name
     then:
@@ -48,9 +48,9 @@ rules:
       functionOptions:
         type: camel
 
-  # The enums value must be snake-case.
   bpi-enum-snake-case:
-    description: Enumerations MUST be snake_cased.
+    description: The enums value must be snake_case.
+    message: Enumerations MUST be snake_cased.
     severity: error
     type: style
     given: $..enum.*

@@ -3,20 +3,19 @@ functions:
   - operation-id
   
 rules:
-
-  # Every attribute inside properties SHOULD have the description.
   bpi-resource-attributes-description:
-    description: Model properties SHOULD have a description.
-    severity: "warn"
+    description: Every attribute inside properties SHOULD have the description.
+    message: Model properties SHOULD have a description.
+    severity: warn
     given: $..properties[?(@.type !== "object")]*
     recommended: true
     then:
       field: description
       function: truthy
 
-  # Every attribute SHOULD have an example.
   bpi-resource-attributes-examples:
     description: Model property `examples` SHOULD be present and non-empty string.
+    message: Every attribute SHOULD have an example.
     recommended: true
     type: style
     given: $..properties[?(@.type == "string" || @.type == "integer" || @.type == "number")]*
@@ -24,9 +23,9 @@ rules:
       field: example
       function: truthy
 
-  # The HTTP codes [200,201,202,206,400,404,409,500] MUST have description and content.
   bpi-validate-content-in-response-body:
-    description: Verbs MUST have content and description in response body
+    description: The HTTP codes [200,201,202,206,400,404,409,500] MUST have content and description.
+    message: Verbs MUST have content and description in response body.
     given: $.paths..responses.[200,201,202,206,400,404,409,500]*
     severity: error
     then:
@@ -35,9 +34,9 @@ rules:
       - field: content
         function: truthy
 
-  # Get List verbs is mandatory have queryParameters.
   bpi-query-parameters-list:
-    description: "GET List verbs MUST have queryParameters"
+    description: Get List verbs is mandatory have queryParameters.
+    message: GET List verbs MUST have queryParameters.
     severity: error
     given: [
       "$.paths[?(@property.indexOf('/{id}') == -1)].get",
@@ -47,24 +46,24 @@ rules:
       field: parameters
       function: truthy
 
-  # To pagintation is mandatory have pageNumber e pageSize in queryParameters.
   bpi-query-parameters-pagination:
-    description: "GET List verbs MUST have queryParameters for Pagination (pageNumber, pageSize)"
+    description: To pagintation is mandatory have pageNumber e pageSize in queryParameters.
+    message: GET List verbs MUST have queryParameters for Pagination (pageNumber, pageSize)
     severity: error
     given: $.paths.*.get.parameters
     then:
       function: query-parameters-pagination
 
-  # Validate that operation-id is compliant to BPI rules.
   bpi-validate-operation-id:
+    description: Validate that operation-id is compliant to BPI rules.
     severity: error
     given: $.paths..operationId
     then:
       function: operation-id
 
-  # Every attribute of type string and not date, must have the maxlength.
   bpi-resource-attributes-max-lenght:
-    description: All attributes of type string MUST have maxLenght.
+    description: Every attribute of type string and not date, must have the maxlength.
+    message: All attributes of type string MUST have maxLenght.
     recommended: true
     type: style
     given: $..properties[?(@.type == "string")]*

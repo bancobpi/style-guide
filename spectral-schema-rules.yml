@@ -1,17 +1,16 @@
 rules:
-  # GET or DELETE operations MUST not have BODY in the request.
   bpi-request-get-or-delete-no-body-oas3:
-    description: GET or DELETE request MUST NOT accept a request body
+    description: GET or DELETE operations MUST not have BODY in the request.
+    message: GET or DELETE request MUST NOT accept a request body.
     severity: "error"
     formats: [oas3]
     given: $.paths..[get,delete].requestBody
     then:
       function: undefined
 
-
-  # Resource paths cant have more than two resources.
   bpi-resource-path-depth-max-two:
-    description: "Resource paths exceeded maximun depth of two resources. Example: /weather-forecasts/{id}/location"
+    description: Resource paths cant have more than two resources.
+    message: Resource paths exceeded maximun depth of two resources.
     formats: ["oas2","oas3"]
     type: style
     severity: "warn"
@@ -21,26 +20,25 @@ rules:
       functionOptions:
         match: '^((\/([a-zA-Z0-9]|-)*(\/{[a-zA-Z0-9]*})?){1,2})$'
 
-
-  # Not allowed verbs outside this list [get, put, post or delete].
   bpi-not-allowed-verbs:
-    description: "The verbs MUST be: [get, put, post or delete] and not: {{property}}."
+    description: Not allowed verbs outside this list [get, put, post or delete].
+    message: "The verbs MUST be: [get, put, post or delete] and not: {{property}}."
     severity: error
     given: $.paths.*[?(@property !== 'get' && @property !== 'put' && @property !== 'post' && @property !== 'delete' && @property !== 'parameters' )]
     then:
       function: undefined
 
-  # When there is a verb with id, the id can`t be other way than "id".
   bpi-id-in-verbs:       
-    description: Resource identifier MUST be id and not {{property}}
+    description: When there is a verb with id, the id can`t be other way than "id".
+    message: "Resource identifier MUST be id and not: {{property}}."
     severity: error
     given: $.paths[?(@property.indexOf("/{") !== -1 && @property.indexOf("/{id}") == -1)]~
     then:
       function: undefined
 
- # All responses verbs MUST be reference to any resource.
   bpi-validate-ref-verbs:
-    description: In verbs MUST be references.
+    description: All responses verbs MUST be reference to any resource.
+    message: In verbs MUST be references.
     given: $.paths..responses.[200,201,202,206,400,404,409,500].content.application/json.schema
     severity: error
     resolved: false
@@ -55,9 +53,9 @@ rules:
               $ref:
                 type: string
 
- # In global resources the first object in allOf, MUST be a reference to designLibrary/common-body.yaml.
   bpi-resource-common-body:
-    description: Resource MUST reference($ref) designLibrary/common-body.yaml
+    description: In global resources the first object in allOf, MUST be a reference to designLibrary/common-body.
+    message: Resource MUST $ref to designLibrary/common-body.
     severity: error
     given: $.allOf[0]
     recommended: true
