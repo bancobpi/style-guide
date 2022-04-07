@@ -1,5 +1,5 @@
 rules:
-  bpi-kebab-case-resource-name:
+  bpi-resource-name-kebab-case:
     description: All resources paths must be kebab-cased.
     message: Resource paths MUST be kebab-cased.
     documentationUrl: https://bancobpi.stoplight.io/studio/style-guide#bpi-kebab-case-resource-name

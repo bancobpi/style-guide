@@ -1,6 +1,6 @@
 # Fill Rules Specification
 
-## bpi-resource-attributes-description 
+## bpi-resource-attributes-description
 
 All attributes SHOULD have a description even if it is summarized. 
 
@@ -8,7 +8,7 @@ Descriptions are intended to give more context to the attribute, making the API 
 
 **Exception:** object types.
 
-![image.png](https://stoplight.io/api/v1/projects/cHJqOjEyNTMyNw/images/NYHJ6WgE0pM)
+![bpi-resource-attributes-description](https://stoplight.io/api/v1/projects/cHJqOjEyNTMyNw/images/NYHJ6WgE0pM)
 
 ## bpi-resource-attributes-examples
 
@@ -18,13 +18,13 @@ When we put the real examples and use the mocks, we can get a real view of the A
 
 Descriptions are intended to give more context to the attribute, making the API more intuitive and user-friendly.
 
-![image.png](https://stoplight.io/api/v1/projects/cHJqOjEyNTMyNw/images/3d2vL21HQAE)
+![bpi-resource-attributes-examples](https://stoplight.io/api/v1/projects/cHJqOjEyNTMyNw/images/3d2vL21HQAE)
 
 ## bpi-validate-content-in-response-body
 
 Currently we only allow http codes [200,201,202,206,400,404,409,500]. When these codes are mapped, they must contain description and content.
 
-![02.png](https://stoplight.io/api/v1/projects/cHJqOjEyNTMyNw/images/jkiAEjyZqv4)
+![bpi-validate-content-in-response-body](https://stoplight.io/api/v1/projects/cHJqOjEyNTMyNw/images/jkiAEjyZqv4)
 
 ## bpi-query-parameters-pagination
 
@@ -32,16 +32,16 @@ In the case of Lists, it is necessary that there always exist queryParameters, e
 
 To support pagination, these two attributes are needed in the queryParameters.
 
-![image.png](https://stoplight.io/api/v1/projects/cHJqOjEyNTMyNw/images/xApnhCXRiHY)
+![bpi-query-parameters-pagination](https://stoplight.io/api/v1/projects/cHJqOjEyNTMyNw/images/xApnhCXRiHY)
 
 ## bpi-validate-operation-id
 
 We decided to create a pattern for the operationId. To ensure this pattern, we create a javascript function that returns the value to be filled.
 
-![image.png](https://stoplight.io/api/v1/projects/cHJqOjEyNTMyNw/images/aHkCwc4CWsg)
+![bpi-validate-operation-id](https://stoplight.io/api/v1/projects/cHJqOjEyNTMyNw/images/aHkCwc4CWsg)
 
 ## bpi-resource-attributes-max-lenght
 
 Due to some restrictions, we decided that all strings must have maxLenght.
 
-![image.png](https://stoplight.io/api/v1/projects/cHJqOjEyNTMyNw/images/c4yAeG2yWm4)
+![bpi-resource-attributes-max-lenght](https://stoplight.io/api/v1/projects/cHJqOjEyNTMyNw/images/c4yAeG2yWm4)
