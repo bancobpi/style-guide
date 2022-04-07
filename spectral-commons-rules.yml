@@ -1,7 +1,7 @@
 rules:
-  # The API version must be 3.0.0 or higher.
   bpi-open-api-version-rule:
-    description: "OpenApi MUST be in version 3.0.0 or higher"
+    description: The API version must be 3.0.0 or higher.
+    message: "OpenApi MUST be in version 3.0.0 or higher."
     formats: ["oas2"]
     severity: "error"
     given: $
