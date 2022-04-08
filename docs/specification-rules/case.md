@@ -1,4 +1,4 @@
-# Casing Rules Specification
+# Case
 
 We will basically use three types of styles: camelCase, snake_case and kebab-case.
 

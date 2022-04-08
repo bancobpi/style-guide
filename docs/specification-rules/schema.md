@@ -1,4 +1,4 @@
-# Schema Rules Specification
+# Schema
 
 ## bpi-request-get-or-delete-no-body-oas3
 

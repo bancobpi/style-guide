@@ -21,11 +21,16 @@ extends:
 
 ## Rules Specification
 
-The [specification](./specification-rules.md) of each rule.
+The spectral is divided into six parts. Two are transversal related to OpenAPI standard rules and four are specific to BPI's internal government rules. For these four we present the reason for each rule and an illustrative image that supports the validation resolution.
+
+**[case](https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk1-case)**&emsp;&emsp;
+**[fill](https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk2-fill)**&emsp;&emsp;
+**[schema](https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk3-schema)**&emsp;&emsp;
+**[status-code](https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk4-status-code)**
 
 ## Questions & Suggestions
 
-Please contact api.design.authority@bancobpi.pt
+Please contact api.design.authority@bancobpi.pt 
 
 ---
 <!-- focus: false -->
