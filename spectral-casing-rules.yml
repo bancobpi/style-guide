@@ -2,7 +2,7 @@ rules:
   bpi-resource-name-kebab-case:
     description: All resources paths must be kebab-cased.
     message: Resource paths MUST be kebab-cased.
-    documentationUrl: https://bancobpi.stoplight.io/studio/style-guide#bpi-kebab-case-resource-name
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk1-casing-rules-specification#bpi-resource-name-kebab-case
     formats: ["oas2","oas3"]
     type: style
     severity: "error"
@@ -15,7 +15,7 @@ rules:
   bpi-resources-kebab-case:
     description: All resources must be kebab-case.
     message: Resources MUST be kebab-cased.
-    documentationUrl: https://bancobpi.stoplight.io/studio/style-guide#bpi-resources-kebab-case
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk1-casing-rules-specification#bpi-resources-kebab-case
     severity: "error"
     type: style
     given: [
@@ -32,7 +32,7 @@ rules:
   bpi-resource-attributes-camel-case:
     description: All attributes inside properties MUST be in camelCase.
     message: Attributes MUST be camelCase.
-    documentationUrl: https://bancobpi.stoplight.io/studio/style-guide#bpi-resource-attributes-camel-case
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk1-casing-rules-specification#bpi-resource-attributes-camel-case
     type: style
     severity: "error"
     given: $..properties[?(@property !== "_links")]~
@@ -44,7 +44,7 @@ rules:
   bpi-parameters-camel-case:
     description: The parameters value must be camelCase.
     message: Parameters MUST be camelCase.
-    documentationUrl: https://bancobpi.stoplight.io/studio/style-guide#bpi-parameters-camel-case
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk1-casing-rules-specification#bpi-parameters-camel-case
     severity: error
     given: $.paths.*.*.parameters.*.name
     then:
@@ -55,7 +55,7 @@ rules:
   bpi-enum-snake-case:
     description: The enums value must be snake_case.
     message: Enumerations MUST be snake_cased.
-    documentationUrl: https://bancobpi.stoplight.io/studio/style-guide#bpi-enum-snake-case
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk1-casing-rules-specification#bpi-enum-snake-case
     severity: error
     type: style
     given: $..enum.*

@@ -2,7 +2,7 @@ rules:
   bpi-request-get-or-delete-no-body-oas3:
     description: GET or DELETE operations MUST not have BODY in the request.
     message: GET or DELETE request MUST NOT accept a request body.
-    documentationUrl: https://bancobpi.stoplight.io/studio/style-guide#bpi-request-get-or-delete-no-body-oas3
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk3-schema-rules-specification#bpi-request-get-or-delete-no-body-oas3
     severity: "error"
     formats: [oas3]
     given: $.paths..[get,delete].requestBody
@@ -12,7 +12,7 @@ rules:
   bpi-resource-path-depth-max-two:
     description: Resource paths cant have more than two resources.
     message: Resource paths exceeded maximun depth of two resources.
-    documentationUrl: https://bancobpi.stoplight.io/studio/style-guide#bpi-resource-path-depth-max-two
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk3-schema-rules-specification#bpi-resource-path-depth-max-two
     formats: ["oas2","oas3"]
     type: style
     severity: "warn"
@@ -25,7 +25,7 @@ rules:
   bpi-not-allowed-verbs:
     description: Not allowed verbs outside this list [get, put, post or delete].
     message: "The verbs MUST be: [get, put, post or delete] and not: {{property}}."
-    documentationUrl: https://bancobpi.stoplight.io/studio/style-guide#bpi-not-allowed-verbs
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk3-schema-rules-specification#bpi-not-allowed-verbs
     severity: error
     given: $.paths.*[?(@property !== 'get' && @property !== 'put' && @property !== 'post' && @property !== 'delete' && @property !== 'parameters' )]
     then:
@@ -34,7 +34,7 @@ rules:
   bpi-id-in-verbs:       
     description: When there is a verb with id, the id can`t be other way than "id".
     message: "Resource identifier MUST be id and not: {{property}}."
-    documentationUrl: https://bancobpi.stoplight.io/studio/style-guide#bpi-id-in-verbs
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk3-schema-rules-specification#bpi-id-in-verbs
     severity: error
     given: $.paths[?(@property.indexOf("/{") !== -1 && @property.indexOf("/{id}") == -1)]~
     then:
@@ -43,7 +43,7 @@ rules:
   bpi-validate-ref-verbs:
     description: All responses verbs MUST be reference to any resource.
     message: In verbs MUST be references.
-    documentationUrl: https://bancobpi.stoplight.io/studio/style-guide#bpi-validate-ref-verbs
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk3-schema-rules-specification#bpi-validate-ref-verbs
     given: $.paths..responses.[200,201,202,206,400,404,409,500].content.application/json.schema
     severity: error
     resolved: false
@@ -61,7 +61,7 @@ rules:
   bpi-resource-common-body:
     description: In global resources the first object in allOf, MUST be a reference to designLibrary/common-body.
     message: Resource MUST $ref to designLibrary/common-body.
-    documentationUrl: https://bancobpi.stoplight.io/studio/style-guide#bpi-resource-common-body
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk3-schema-rules-specification#bpi-resource-common-body
     severity: error
     given: $.allOf[0]
     recommended: true
