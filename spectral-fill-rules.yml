@@ -6,7 +6,7 @@ rules:
   bpi-resource-attributes-description:
     description: Every attribute inside properties SHOULD have the description.
     message: Model properties SHOULD have a description.
-    documentationUrl: https://bancobpi.stoplight.io/studio/style-guide#bpi-resource-attributes-description
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk2-fill-rules-specification#bpi-resource-attributes-description
     severity: warn
     given: $..properties[?(@.type !== "object")]*
     recommended: true
@@ -17,7 +17,7 @@ rules:
   bpi-resource-attributes-examples:
     description: Model property `examples` SHOULD be present and non-empty string.
     message: Every attribute SHOULD have an example.
-    documentationUrl: https://bancobpi.stoplight.io/studio/style-guide#bpi-resource-attributes-examples
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk2-fill-rules-specification#bpi-resource-attributes-examples
     recommended: true
     type: style
     given: $..properties[?(@.type == "string" || @.type == "integer" || @.type == "number")]*
@@ -28,7 +28,7 @@ rules:
   bpi-validate-content-in-response-body:
     description: The HTTP codes [200,201,202,206,400,404,409,500] MUST have description and content.
     message: Verbs MUST have description and content in response body.
-    documentationUrl: https://bancobpi.stoplight.io/studio/style-guide#bpi-validate-content-in-response-body
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk2-fill-rules-specification#bpi-validate-content-in-response-body
     given: $.paths..responses.[200,201,202,206,400,404,409,500]*
     severity: error
     then:
@@ -39,7 +39,7 @@ rules:
 
   bpi-query-parameters-pagination:
     description: To pagintation is mandatory have `pageNumber` e `pageSize` in queryParameters.
-    documentationUrl: https://bancobpi.stoplight.io/studio/style-guide#bpi-query-parameters-pagination
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk2-fill-rules-specification#bpi-query-parameters-pagination
     severity: error
     given: $.paths.*.get.parameters
     then:
@@ -47,7 +47,7 @@ rules:
 
   bpi-validate-operation-id:
     description: Validate that operation-id is compliant to BPI rules.
-    documentationUrl: https://bancobpi.stoplight.io/studio/style-guide#bpi-validate-operation-id
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk2-fill-rules-specification#bpi-validate-operation-id
     severity: error
     given: $.paths..operationId
     then:
@@ -56,7 +56,7 @@ rules:
   bpi-resource-attributes-max-lenght:
     description: Every attribute of type string must have the maxlength.
     message: All attributes of type string MUST have maxLenght.
-    documentationUrl: https://bancobpi.stoplight.io/studio/style-guide#bpi-resource-attributes-max-lenght
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk2-fill-rules-specification#bpi-resource-attributes-max-lenght
     recommended: true
     type: style
     given: $..properties[?(@.type == "string")]*
