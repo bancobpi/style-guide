@@ -54,7 +54,7 @@ rules:
       function: operation-id
 
   bpi-resource-attributes-max-lenght:
-    description: Every attribute must have the maxlength.
+    description: Every attribute of type string must have the maxlength.
     message: All attributes of type string MUST have maxLenght.
     documentationUrl: https://bancobpi.stoplight.io/studio/style-guide#bpi-resource-attributes-max-lenght
     recommended: true
