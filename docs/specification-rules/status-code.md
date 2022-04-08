@@ -1,4 +1,4 @@
-# Status Code Rules Specification
+# Status Code
 
 ## bpi-http-error-code-reference
 

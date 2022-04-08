@@ -1,4 +1,4 @@
-# Fill Rules Specification
+# Fill
 
 ## bpi-resource-attributes-description
 
