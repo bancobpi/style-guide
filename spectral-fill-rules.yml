@@ -39,6 +39,7 @@ rules:
 
   bpi-query-parameters-pagination:
     description: To pagintation is mandatory have `pageNumber` e `pageSize` in queryParameters.
+    message: "{{error}}"
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk2-fill-rules-specification#bpi-query-parameters-pagination
     severity: error
     given: $.paths.*.get.parameters
@@ -47,6 +48,7 @@ rules:
 
   bpi-validate-operation-id:
     description: Validate that operation-id is compliant to BPI rules.
+    message: "{{error}}"
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk2-fill-rules-specification#bpi-validate-operation-id
     severity: error
     given: $.paths..operationId
