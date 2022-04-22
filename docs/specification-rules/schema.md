@@ -43,3 +43,29 @@ When designing the paths, we only accept the following http codes [200,201,202,2
 To maintain a standard design for our APIs, there are two main type of resources to reference. The ones at the top left are the global ones, and the ones at the bottom left are the pagination ones. All global resources must be an allOf and the first object be the reference to designLibrary/common-body
 
 ![bpi-resource-common-body](https://raw.github.com/bancobpi/style-guide/master/static/bpi-resource-common-body.jpg)
+
+## bpi-boolean-validate
+
+Could try to avoid the boolean type. Most boolean attributes could become an enum.
+
+Example:
+
+Field | Type | Values | Obs
+---------|----------|---------|---------
+ statusInactive | boolean | true or false | BAD example
+ status | enumeration | active, inactive, suspended | GOOD example
+
+## validate-string-type-different-string
+
+Validate if the attribute contains the word type, if yes, if it is different from the type string.
+
+The attribute that contains the word type, maybe it could be a string and contain a description and not just a number.
+
+Example:
+
+Attribute | Type | Values | Obs
+---------|----------|---------|---------
+ storeType | number | 1,2,3,4 | BAD example
+ storeType | enum | small,medium,large,extra_large | GOOD example
+
+ With the example above it is clear that the good example is much more user friendly.
