@@ -43,3 +43,22 @@ Each operation must have an operationId that is its path, with - instead of / an
 In order to limit the size of the payload, every string attribute and format other than date, time and date-time, must have a max length validation.
 
 ![bpi-resource-attributes-max-lenght](https://raw.github.com/bancobpi/style-guide/main/static/bpi-resource-attributes-max-lenght.jpg)
+
+## bpi-enumeration-attributes-size
+
+Enumerators should be clear about its meaning. This rule validates that it has more than one character. Preferably it is a description and not just numbers.
+
+BAD Example | GOOD Example
+---------|----------
+ ![BadExampleEnum.jpg](https://stoplight.io/api/v1/projects/cHJqOjY2NDEz/images/RXgN6QEsKxg)  | ![GoodExampleEnum.jpg](https://stoplight.io/api/v1/projects/cHJqOjY2NDEz/images/oPZ9mpg8wes) 
+
+## bpi-validate-exception-word-flag
+
+The word FLAG should be avoided in the composition of attributes. This, and other words, can end up indicating something that is not.
+
+Example: 
+
+Attribute:irsExemptionFlag <br>
+Type: Enumeration <br>
+
+The word **FLAG** gives the idea of a boolean and not an enumerator as in the example above.

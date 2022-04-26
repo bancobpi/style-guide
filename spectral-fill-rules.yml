@@ -1,6 +1,7 @@
 functions:
   - query-parameters-pagination
   - operation-id
+  - includes-string
   
 rules:
   bpi-resource-attributes-description:
@@ -66,3 +67,26 @@ rules:
     then:
       - field: maxLength
         function: truthy
+
+  bpi-enumeration-attributes-size:
+    description: Each enumerated value need have more than two letters.
+    message: Check the Enum, the attributes COULD have more than 2 letters.
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk3-schema-rules-specification#bpi-enumeration-attributes-size
+    severity: info
+    given: $..enum.*
+    then:
+      field: value
+      function: length
+      functionOptions:
+        min: 2
+
+  bpi-validate-exception-word-flag:
+    description: Try not to use the words in functionOptions.
+    message: "{{error}}"
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk3-schema-rules-specification#bpi-validate-exception-word-flag
+    severity: info
+    given: $..properties.*~
+    then:
+      function: includes-string
+      functionOptions: 
+        string: flag
