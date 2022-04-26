@@ -46,7 +46,7 @@ To maintain a standard design for our APIs, there are two main type of resources
 
 ## bpi-boolean-validate
 
-Could try to avoid the boolean type. Most boolean attributes could become an enum.
+One should try to avoid the boolean type. Most boolean attributes could become an enumerator.
 
 Example:
 
@@ -55,11 +55,11 @@ Field | Type | Values | Obs
  statusInactive | boolean | true or false | BAD example
  status | enumeration | active, inactive, suspended | GOOD example
 
-## validate-string-type-different-string
+## bpi-validate-string-type-different-string
 
-Validate if the attribute contains the word type, if yes, if it is different from the type string.
+Attributes that contain the word "type" must be of type string.
 
-The attribute that contains the word type, maybe it could be a string and contain a description and not just a number.
+If not, attributes with the word "type" will have values with no clear meaning, like for example a number.
 
 Example:
 
@@ -68,4 +68,4 @@ Attribute | Type | Values | Obs
  storeType | number | 1,2,3,4 | BAD example
  storeType | enum | small,medium,large,extra_large | GOOD example
 
- With the example above it is clear that the good example is much more user friendly.
+ With the example above it is clear that the good example is much more user friendly and self-explanatory.

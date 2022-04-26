@@ -46,7 +46,7 @@ In order to limit the size of the payload, every string attribute and format oth
 
 ## bpi-enumeration-attributes-size
 
-To bring a better description of the attributes, suggesting that it has more than one character. Preferably it is a description and not just numbers.
+Enumerators should be clear about its meaning. This rule validates that it has more than one character. Preferably it is a description and not just numbers.
 
 BAD Example | GOOD Example
 ---------|----------
@@ -54,16 +54,11 @@ BAD Example | GOOD Example
 
 ## bpi-validate-exception-word-flag
 
-The word FLAG should be avoided in the composition of attributes. This and other words can end up indicating something that is not.
+The word FLAG should be avoided in the composition of attributes. This, and other words, can end up indicating something that is not.
 
 Example: 
 
 Attribute:irsExemptionFlag <br>
 Type: Enumeration <br>
 
-The word **FLAG** gives a boolean indication and not an enum, as is the attribute type.
-
-
-
-
-
+The word **FLAG** gives the idea of a boolean and not an enumerator as in the example above.
