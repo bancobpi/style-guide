@@ -92,7 +92,7 @@ rules:
     description: Validate if the attribute contains the word type, if yes, if it is different from the type string.
     message: "{{error}}"
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk3-schema-rules-specification#validate-string-type-different-string
-    severity: warn
+    severity: info
     given: $..properties.*^
     then:
       function: validate-specific-attribute-type
