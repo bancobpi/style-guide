@@ -18,7 +18,7 @@ verb        | allowed http codes            | example path
  get        | 200,206,400,500               | /stores
  getWithId  | 200,206,400,500               | /stores/{id}/accounting-days
  getById    | 200,400,404,500               | /stores/{id}
- post       | "201,202","400,409,500"       | /stores
- postWithId | "201,202","400,404,409,500"   | /stores/{id}/accounting-days
- put        |"200,400,404,409,500"          | /products/{id}
- delete     |"200,204","400,404,409,500"    | /accounting-days/{id}
+ post       | 201 or 202 and 400,409,500    | /stores
+ postWithId | 201 or 202 and 400,404,409,500| /stores/{id}/accounting-days
+ put        |200,400,404,409,500            | /products/{id}
+ delete     |200 or 204 and 400,404,409,500 | /accounting-days/{id}
