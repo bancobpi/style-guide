@@ -6,7 +6,7 @@ module.exports = (targetValue, options, context) => {
     const responses = targetValue[verb] || {};
     if(verb.toLowerCase().includes(options.string)){
       for (const [key, value] of Object.entries(responses)) {
-        if(key === options.string && value != options.type){
+        if(key == "type" && value != options.type){
           result.push({
             message: "COULD check the type of attribute: " + verb
           });
