@@ -99,3 +99,15 @@ rules:
       functionOptions: 
         string: type
         type: string
+
+  bpi-validate-string-id-different-string:
+    description: Validate if the attribute contains the word id, if yes, if it is different from the type string.
+    message: "{{error}}"
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk3-schema-rules-specification#validate-string-id-different-string
+    severity: warn
+    given: $..properties.*^
+    then:
+      function: validate-specific-attribute-type
+      functionOptions: 
+        string: id
+        type: string

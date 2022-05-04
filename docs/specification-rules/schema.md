@@ -69,3 +69,18 @@ Attribute | Type | Values | Obs
  storeType | enum | small,medium,large,extra_large | GOOD example
 
  With the example above it is clear that the good example is much more user friendly and self-explanatory.
+
+## bpi-validate-string-id-different-string
+
+Attributes that contain the word "id" must be of type string.
+
+If not, attributes with the word "id" will have values with no clear meaning, like for example a number.
+
+Example:
+
+Attribute | Type | Values | Obs
+---------|----------|---------|---------
+ storeId | number | 1,2,3,4 | BAD example
+ storeId | string | AC245 | GOOD example
+
+ With the example above it is clear that the good example is much more user friendly and self-explanatory.
