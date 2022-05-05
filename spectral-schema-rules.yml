@@ -78,8 +78,8 @@ rules:
             "$ref": 'https://stoplight.io/api/v1/projects/bancobpi/commons-api-definitions/nodes/models/common-body.yaml?deref=bundle'
 
   bpi-boolean-validate:
-    description: Avoid having boolean types, substituting enum when possible.
-    message: COULD this boolean not be an enum?
+    description: Avoid having boolean types, replace with enum when possible.
+    message: COULD this boolean be an enum?
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk3-schema-rules-specification#bpi-boolean-validate
     recommended: true
     type: style
@@ -89,9 +89,9 @@ rules:
         function: undefined
 
   bpi-validate-string-type-different-string:
-    description: Validate if the attribute contains the word type, if yes, if it is different from the type string.
+    description: Validate if the attribute contains the word type. If so, validate if it COULD be a string.
     message: "{{error}}"
-    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk3-schema-rules-specification#validate-string-type-different-string
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk3-schema-rules-specification#bpi-validate-string-type-different-string
     severity: info
     given: $..properties.*^
     then:
@@ -101,7 +101,7 @@ rules:
         type: string
 
   bpi-validate-string-id-different-string:
-    description: Validate if the attribute contains the word id, if yes, if it is different from the type string.
+    description: Validate if the attribute contains the word id. If so, validate if it COULD be a string.
     message: "{{error}}"
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk3-schema-rules-specification#validate-string-id-different-string
     severity: warn

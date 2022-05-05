@@ -69,8 +69,8 @@ rules:
         function: truthy
 
   bpi-enumeration-attributes-size:
-    description: Each enumerated value need have more than two letters.
-    message: Check the Enum, the attributes COULD have more than 2 letters.
+    description: Each enumerated value need to have more than one letter.
+    message: COULD the enum values have more than one letter?
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk3-schema-rules-specification#bpi-enumeration-attributes-size
     severity: info
     given: $..enum.*
@@ -81,7 +81,7 @@ rules:
         min: 2
 
   bpi-validate-exception-word-flag:
-    description: Try not to use the words in functionOptions.
+    description: Try not to use the word flag in attributes' name.
     message: "{{error}}"
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk3-schema-rules-specification#bpi-validate-exception-word-flag
     severity: info

@@ -8,7 +8,7 @@ module.exports = (targetValue, options, context) => {
       for (const [key, value] of Object.entries(responses)) {
         if(key == "type" && value != options.type){
           result.push({
-            message: "COULD check the type of attribute: " + verb
+            message: "Check if the type of the attribute " + verb + " COULD be " +  options.type
           });
         }
       }
