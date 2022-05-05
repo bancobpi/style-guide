@@ -14,10 +14,10 @@ rules:
       function: http-error-code-reference
 
 bpi-should-use-well-http-status-codes:
-    message: '{{error}}'
     description: MUST use HTTP status codes defined below.
+    message: '{{error}}'
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk4-status-code-rules-specification#bpi-http-error-code-reference
-    severity: warn
+    severity: error
     given: $.paths..*.responses
     then:
       function: assert-http-codes-for-operation
