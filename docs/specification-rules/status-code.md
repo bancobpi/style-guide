@@ -10,8 +10,7 @@ Example: Http 400, we have error block 400.
 
 ## bpi-should-use-well-http-status-codes
 
-For each verb we have a specific list of http codes that we must respect. Below is this list:
-
+For each verb we have a specific list of http codes that we must respect:
 
 verb        | allowed http codes            | example path
 ------------|-------------------------------|---------

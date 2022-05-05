@@ -72,15 +72,13 @@ Attribute | Type | Values | Obs
 
 ## bpi-validate-string-id-different-string
 
-Attributes that contain the word "id" must be of type string.
-
-If not, attributes with the word "id" will have values with no clear meaning, like for example a number.
+Attributes that contain the word "id" must be of type string. Usually this kind of attribute is of type string because it allows for a greater range of values. You can enter only values or only words or a mix of both.
 
 Example:
 
 Attribute | Type | Values | Obs
 ---------|----------|---------|---------
- storeId | number | 1,2,3,4 | BAD example
+ storeId | number | 1 | BAD example
+ storeId | string | "1" | GOOD example
  storeId | string | AC245 | GOOD example
 
- With the example above it is clear that the good example is much more user friendly and self-explanatory.
