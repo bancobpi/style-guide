@@ -6,7 +6,7 @@ rules:
     description: GET or DELETE operations MUST not have BODY in the request.
     message: GET or DELETE request MUST NOT accept a request body.
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b66c26f6a6048-schema#bpi-request-get-or-delete-no-body-oas3
-    severity: "error"
+    severity: error
     formats: [oas3]
     given: $.paths..[get,delete].requestBody
     then:
@@ -18,12 +18,12 @@ rules:
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b66c26f6a6048-schema#bpi-resource-path-depth-max-two
     formats: ["oas2","oas3"]
     type: style
-    severity: "warn"
-    given: "$.paths[*]~"
+    severity: warn
+    given: $.paths.*~
     then:
       function: pattern
       functionOptions:
-        match: '^((\/([a-zA-Z0-9]|-)*(\/{[a-zA-Z0-9]*})?){1,2})$'
+        match: '^(\/[^/]+){1,3}$'
 
   bpi-not-allowed-verbs:
     description: Not allowed verbs outside this list [get, put, post or delete].
