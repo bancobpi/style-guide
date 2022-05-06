@@ -13,19 +13,3 @@ rules:
     then:
       function: http-error-code-reference
 
-bpi-should-use-well-http-status-codes:
-    description: MUST use HTTP status codes defined below.
-    message: '{{error}}'
-    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/a5e10d9420432-status-code#bpi-should-use-well-http-status-codes
-    severity: error
-    given: $.paths..*.responses
-    then:
-      function: assert-http-codes-for-operation
-      functionOptions:
-        'get':        ["200,206,400,500"]
-        'getWithId':  ["200,206,400,500"]
-        'getById':    ["200,400,404,500"]
-        'post':       ["201,202","400,409,500"]
-        'postWithId': ["201,202","400,404,409,500"]
-        'put':        ["200,400,404,409,500"]
-        'delete':     ["200,204","400,404,409,500"]
