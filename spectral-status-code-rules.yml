@@ -6,7 +6,7 @@ rules:
   bpi-http-error-code-reference:
     description: HTTP Code erros response MUST reference designLibrary/error-block-(httpCode).
     message: "{{error}}"
-    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk4-status-code-rules-specification#bpi-http-error-code-reference
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/a5e10d9420432-status-code#bpi-http-error-code-reference
     severity: error
     given: $.paths..responses[?( @property >= 400 && @property <= 500)].content.application/json.schema.*
     resolved: false
@@ -16,7 +16,7 @@ rules:
 bpi-should-use-well-http-status-codes:
     description: MUST use HTTP status codes defined below.
     message: '{{error}}'
-    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk4-status-code-rules-specification#bpi-http-error-code-reference
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/a5e10d9420432-status-code#bpi-should-use-well-http-status-codes
     severity: error
     given: $.paths..*.responses
     then:

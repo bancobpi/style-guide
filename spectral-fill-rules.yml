@@ -7,7 +7,7 @@ rules:
   bpi-resource-attributes-description:
     description: Every attribute inside properties SHOULD have the description.
     message: Model properties SHOULD have a description.
-    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk2-fill-rules-specification#bpi-resource-attributes-description
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-resource-attributes-description
     severity: warn
     given: $..properties[?(@.type !== "object")]*
     recommended: true
@@ -18,7 +18,7 @@ rules:
   bpi-resource-attributes-examples:
     description: Model property `examples` SHOULD be present and non-empty string.
     message: Every attribute SHOULD have an example.
-    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk2-fill-rules-specification#bpi-resource-attributes-examples
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-resource-attributes-examples
     recommended: true
     type: style
     given: $..properties[?(@.type == "string" || @.type == "integer" || @.type == "number")]*
@@ -29,7 +29,7 @@ rules:
   bpi-validate-content-in-response-body:
     description: The HTTP codes [200,201,202,206,400,404,409,500] MUST have description and content.
     message: Verbs MUST have description and content in response body.
-    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk2-fill-rules-specification#bpi-validate-content-in-response-body
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-validate-content-in-response-body
     given: $.paths..responses.[200,201,202,206,400,404,409,500]*
     severity: error
     then:
@@ -41,7 +41,7 @@ rules:
   bpi-query-parameters-pagination:
     description: To pagintation is mandatory have `pageNumber` e `pageSize` in queryParameters.
     message: "{{error}}"
-    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk2-fill-rules-specification#bpi-query-parameters-pagination
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-query-parameters-pagination
     severity: error
     given: $.paths.*.get.parameters
     then:
@@ -50,7 +50,7 @@ rules:
   bpi-validate-operation-id:
     description: Validate that operation-id is compliant to BPI rules.
     message: "{{error}}"
-    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk2-fill-rules-specification#bpi-validate-operation-id
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-validate-operation-id
     severity: error
     given: $.paths..operationId
     then:
@@ -59,7 +59,7 @@ rules:
   bpi-resource-attributes-max-lenght:
     description: Every attribute of type string and format other than date, time and date-time, must have the maxlength.
     message: All attributes of type string MUST have maxLenght.
-    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk2-fill-rules-specification#bpi-resource-attributes-max-lenght
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-resource-attributes-max-lenght
     recommended: true
     type: style
     given: $..properties[?(@.type == "string" && @.format !== "date" && @.format !== "time" && @.format !== "date-time"  && !@.enum)]*
@@ -71,7 +71,7 @@ rules:
   bpi-enumeration-attributes-size:
     description: Each enumerated value need to have more than one letter.
     message: COULD the enum values have more than one letter?
-    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk3-schema-rules-specification#bpi-enumeration-attributes-size
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-enumeration-attributes-size
     severity: info
     given: $..enum.*
     then:
@@ -83,7 +83,7 @@ rules:
   bpi-validate-exception-word-flag:
     description: Try not to use the word flag in attributes' name.
     message: "{{error}}"
-    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMTY4Nzk3-schema-rules-specification#bpi-validate-exception-word-flag
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-validate-exception-word-flag
     severity: info
     given: $..properties.*~
     then:
