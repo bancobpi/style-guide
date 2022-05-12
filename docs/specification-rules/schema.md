@@ -82,3 +82,20 @@ Attribute | Type | Values | Obs
  storeId | string | "1" | GOOD example
  storeId | string | AC245 | GOOD example
 
+## bpi-validate-allowed-paths
+
+The paths allowed are: 
+
+***WithId** - When the verb has an id in the middle of the path; <br>
+***ById** - When the verb has id at the end of the path;
+
+Verb        | Path Example
+---------   |----------
+ get        | /stores
+ getWithId  | /stores/{id}/accounting-days
+ getById    | /accounting-days/{id}
+ post       | /stores
+ postWithId | /stores/{id}/accounting-days 
+ put        | /products/{id}
+ delete     | /accounting-days/{id}
+
