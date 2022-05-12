@@ -111,3 +111,13 @@ rules:
       functionOptions: 
         string: id
         type: string
+
+  bpi-validate-allowed-paths:
+    description: MUST use the PATHS defined in variable 'paths'.
+    message: "{{error}}"
+    severity: error
+    given: $.paths..*.responses
+    then:
+      function: validate-allowed-paths
+      functionOptions:
+        'paths': get,getWithId,getById,post,postWithId,put,delete
