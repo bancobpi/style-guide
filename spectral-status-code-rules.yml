@@ -1,6 +1,6 @@
 functions:
   - http-error-code-reference
-  - assert-http-codes-for-operation
+  - http-codes-for-operation
 
 rules:
   bpi-http-error-code-reference:
@@ -20,7 +20,7 @@ rules:
     severity: error
     given: $.paths..*.responses
     then:
-      function: assert-http-codes-for-operation
+      function: http-codes-for-operation
       functionOptions:
         'get':        ["200,206,400,500"]
         'getWithId':  ["200,206,400,404,500"]

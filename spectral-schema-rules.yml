@@ -104,7 +104,7 @@ rules:
     description: Validate if the attribute contains the word id. If so, validate if it COULD be a string.
     message: "{{error}}"
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b66c26f6a6048-schema#bpi-validate-string-id-different-string
-    severity: warn
+    severity: info
     given: $..properties.*^
     then:
       function: validate-specific-attribute-type

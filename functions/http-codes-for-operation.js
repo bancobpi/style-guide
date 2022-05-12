@@ -61,6 +61,10 @@ export default (targetValue,options, context) => {
           });
         }
       }
+  }else{
+    result.push({
+      message: name + " HTTP status codes MUST be defined for this path"
+    });
   }
   return result;
 };
