@@ -64,7 +64,7 @@ rules:
 
   bpi-resource-common-body:
     description: In global resources the first object in allOf, MUST be a reference to designLibrary/common-body.
-    message: Resource MUST $ref to designLibrary/common-body.
+    message: "{{error}}"
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b66c26f6a6048-schema#bpi-resource-common-body
     severity: error
     given: $.allOf[0]
@@ -72,12 +72,8 @@ rules:
     type: "style"
     resolved: false
     then:
-      function: schema
-      functionOptions:
-        schema:
-          const:
-            "$ref": 'https://stoplight.io/api/v1/projects/bancobpi/commons-api-definitions/nodes/models/common-body.yaml?deref=bundle'
-
+      function: validate-model-common-body
+      
   bpi-boolean-validate:
     description: Avoid having boolean types, replace with enum when possible.
     message: COULD this boolean be an enum?

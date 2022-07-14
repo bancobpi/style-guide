@@ -43,7 +43,7 @@ rules:
     message: "{{error}}"
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-query-parameters-pagination
     severity: error
-    given: $.paths.*.get.parameters
+    given: $.paths.*.get
     then:
       function: query-parameters-pagination
 
