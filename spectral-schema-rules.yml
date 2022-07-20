@@ -1,6 +1,7 @@
 functions:
   - validate-specific-attribute-type
   - validate-allowed-paths
+  - validate-model-common-body
 
 rules:
   bpi-request-get-or-delete-no-body-oas3:
