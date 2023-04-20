@@ -124,7 +124,7 @@ rules:
   bpi-deprecated-link-self-body:
     description: "Type link-self-body is deprecated and MUST not be used"
     message: "Type link-self-body is deprecated and MUST not be used"
-    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/branches/parameter-examples-link-self-body/b7c5ed794d032-fill#bpi-deprecated-link-self-body
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/branches/parameter-examples-link-self-body/b66c26f6a6048-schema#bpi-deprecated-link-self-body
     severity: error
     recommended: true
     type: "style"

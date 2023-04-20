@@ -97,7 +97,7 @@ rules:
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/branches/parameter-examples-link-self-body/b7c5ed794d032-fill#bpi-path-parameter-example
     recommended: true
     type: style
-    severity: warning
+    severity: warn
     given: "$..parameters[?(@.in == 'path')].schema"
     then:
       field: example
@@ -109,7 +109,7 @@ rules:
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/branches/parameter-examples-link-self-body/b7c5ed794d032-fill#bpi-query-parameter-example
     recommended: true
     type: style
-    severity: warning
+    severity: warn
     given: "$..parameters[?(@.in == 'query')].schema"
     then:
       field: example
