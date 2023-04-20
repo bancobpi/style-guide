@@ -99,3 +99,12 @@ Verb        | Path Example
  put        | /products/{id}
  delete     | /accounting-days/{id}
 
+## bpi-deprecated-link-self-body
+
+The type "link-self-body" is currently deprecated and MUST not be used.
+
+![bpi-resource-common-body](https://raw.github.com/bancobpi/style-guide/master/static/bpi-resource-common-body.jpg)
+
+
+It should be replaced with the following structure:
+
