@@ -103,11 +103,11 @@ Verb        | Path Example
 
 The type "link-self-body" is currently deprecated and MUST not be used.
 
-![bpi-link-self-body-deprecated](https://raw.github.com/bancobpi/style-guide/parameter-examples-link-self-body/static/bpi-link-self-body-deprecated.png)
+![bpi-link-self-body-deprecated](https://raw.github.com/bancobpi/style-guide/main/static/bpi-link-self-body-deprecated.png)
 
 A new object should be created, containing another object called "_links" with a "self" property refering the "link-body" component.
 
-![bpi-link-self-body-new](https://raw.github.com/bancobpi/style-guide/parameter-examples-link-self-body/static/bpi-link-self-body-new.png)
+![bpi-link-self-body-new](https://raw.github.com/bancobpi/style-guide/main/static/bpi-link-self-body-new.png)
 
 ```yaml
 - type: object
