@@ -90,3 +90,27 @@ rules:
       function: includes-string
       functionOptions: 
         string: flag
+
+  bpi-path-parameter-example:
+    description: "Path parameter SHOULD contain an example that is not an empty string."
+    message: "Every path parameter SHOULD have an example."
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-path-parameter-example
+    recommended: true
+    type: style
+    severity: warn
+    given: "$..parameters[?(@.in == 'path')].schema"
+    then:
+      field: example
+      function: truthy
+
+  bpi-query-parameter-example:
+    description: "Query parameter SHOULD contain an example that is not an empty string."
+    message: "Every query parameter SHOULD have an example."
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-query-parameter-example
+    recommended: true
+    type: style
+    severity: warn
+    given: "$..parameters[?(@.in == 'query')].schema"
+    then:
+      field: example
+      function: truthy

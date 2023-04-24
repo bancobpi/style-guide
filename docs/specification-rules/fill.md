@@ -62,3 +62,19 @@ Attribute:irsExemptionFlag <br>
 Type: Enumeration <br>
 
 The word **FLAG** gives the idea of a boolean and not an enumerator as in the example above.
+
+## bpi-path-parameter-example
+
+All path parameters SHOULD have an example that is not an empty string.
+
+When we include a real anonymous example for the path parameter, we can get a real view of what information the path parameter should contain, clarifying on how to call the API.
+
+![bpi-path-parameter-example](https://raw.github.com/bancobpi/style-guide/main/static/bpi-path-parameter-example.png)
+
+## bpi-query-parameter-example
+
+All query parameters SHOULD have an example that is not an empty string.
+
+When we include a real anonymous example for the query parameter, we can get a real view of what information the query parameter should contain, clarifying on how to call the API.
+
+![bpi-query-parameter-example](https://raw.github.com/bancobpi/style-guide/main/static/bpi-query-parameter-example.png)

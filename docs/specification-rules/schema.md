@@ -99,3 +99,28 @@ Verb        | Path Example
  put        | /products/{id}
  delete     | /accounting-days/{id}
 
+## bpi-deprecated-link-self-body
+
+The type "link-self-body" is currently deprecated and MUST not be used.
+
+![bpi-link-self-body-deprecated](https://raw.github.com/bancobpi/style-guide/main/static/bpi-link-self-body-deprecated.png)
+
+A new object should be created, containing another object called "_links" with a "self" property refering the "link-body" component.
+
+![bpi-link-self-body-new](https://raw.github.com/bancobpi/style-guide/main/static/bpi-link-self-body-new.png)
+
+```yaml
+- type: object
+    x-stoplight:
+      id: yfu5ku09bqko0
+    properties:
+      _links:
+        type: object
+        x-stoplight:
+          id: ld50wbmyhqvjr
+        properties:
+          self:
+            $ref: 'https://stoplight.io/api/v1/projects/bancobpi/commons-api-definitions/nodes/models/link-body.yaml?mid=3491'
+            x-stoplight:
+              id: 9fey8fp7shaj3
+```

@@ -120,3 +120,15 @@ rules:
       function: validate-allowed-paths
       functionOptions:
         'paths': get,getWithId,getById,post,postWithId,put,delete
+
+  bpi-deprecated-link-self-body:
+    description: "Type link-self-body is deprecated and MUST not be used"
+    message: "Type link-self-body is deprecated and MUST not be used"
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b66c26f6a6048-schema#bpi-deprecated-link-self-body
+    severity: error
+    recommended: true
+    type: "style"
+    resolved: false
+    given: "$..allOf[?(@.$ref && @.$ref.toLowerCase().indexOf('link-self-body') != -1)]"
+    then:
+      function: undefined
