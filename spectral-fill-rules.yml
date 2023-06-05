@@ -114,15 +114,3 @@ rules:
     then:
       field: example
       function: truthy
-
-  bpi-read-only-attributes:
-    description: Attributes whose name starts with _ MUST be read-only.
-    message: "Attributes whose name starts with _ MUST be read-only."
-    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-read-only-attributes
-    recommended: true
-    type: style
-    severity: error
-    given: $..properties[?(@property.indexOf("_") == 0)]*
-    then:
-      - field: readOnly
-        function: truthy
