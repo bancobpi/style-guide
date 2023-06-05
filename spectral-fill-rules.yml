@@ -62,7 +62,7 @@ rules:
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-resource-attributes-max-lenght
     recommended: true
     type: style
-    given: $..properties[?(@.type == "string" && @.format !== "date" && @.format !== "time" && @.format !== "date-time"  && !@.enum && @.format !== "binary")]*
+    given: $..properties[?(@.type == "string" && @.format !== "date" && @.format !== "time" && @.format !== "date-time"  && !@.enum && @.format !== "binary" && @.format !== "base64")]*
     severity: error
     then:
       - field: maxLength

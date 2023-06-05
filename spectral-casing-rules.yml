@@ -35,7 +35,7 @@ rules:
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMjEyNzYw-case#bpi-resource-attributes-camel-case
     type: style
     severity: "error"
-    given: $..properties[?(@property !== "_links")]~
+    given: $..properties[?(@property !== "_links" && @property !== "_expandables")]~
     then:
       function: casing
       functionOptions:
