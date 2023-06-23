@@ -115,10 +115,10 @@ rules:
       field: example
       function: truthy
 
-  bpi-resource-attributes-enum-max-lenght:
-    description: Every attribute of type string and format enum must not have the field maxlength filled.
-    message: Enum attributes MUST NOT have maxLenght filled.
-    documentationUrl: TO_DO
+  bpi-resource-attributes-enum-max-length:
+    description: Every attribute of type string and format enum must not have the field maxLength filled.
+    message: Enum attributes MUST NOT have maxLength filled.
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/branches/attributes-enum-id/b7c5ed794d032-fill#bpi-resource-attributes-enum-max-length
     recommended: true
     type: style
     given: $..properties[?(@.type == "string" && @.enum && @.maxLength)]*
@@ -129,7 +129,7 @@ rules:
   bpi-attribute-name-id-suggestion:
     description: Attribute name starting with id should end with that keyword.
     message: Use the keyword Id at the end of the attribute name.
-    documentationUrl: TO_DO
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/branches/attributes-enum-id/b7c5ed794d032-fill#bpi-attribute-name-id-suggestion
     recommended: true
     type: style
     severity: warn
