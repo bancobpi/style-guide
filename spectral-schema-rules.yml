@@ -101,7 +101,7 @@ rules:
   bpi-validate-string-id-different-string:
     description: Validate if the attribute contains the word id. If so, validate if it COULD be a string.
     message: "{{error}}"
-    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b66c26f6a6048-schema#bpi-validate-string-id-different-string
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/branches/attributes-enum-id/b7c5ed794d032-schema#bpi-validate-string-id-different-string
     severity: info
     given: $..properties.*^
     then:
