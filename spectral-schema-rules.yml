@@ -107,7 +107,7 @@ rules:
     then:
       function: validate-specific-attribute-type
       functionOptions: 
-        string: id
+        string: Id
         type: string
 
   bpi-validate-allowed-paths:

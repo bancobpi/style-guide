@@ -72,7 +72,7 @@ Attribute | Type | Values | Obs
 
 ## bpi-validate-string-id-different-string
 
-Attributes that contain the word "id" must be of type string. Usually this kind of attribute is of type string because it allows for a greater range of values. You can enter only values or only words or a mix of both.
+Attributes that ends with the word "id" must be of type string. Usually this kind of attribute is of type string because it allows for a greater range of values. You can enter only values or only words or a mix of both.
 
 Example:
 

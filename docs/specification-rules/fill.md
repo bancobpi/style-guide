@@ -78,3 +78,15 @@ All query parameters SHOULD have an example that is not an empty string.
 When we include a real anonymous example for the query parameter, we can get a real view of what information the query parameter should contain, clarifying on how to call the API.
 
 ![bpi-query-parameter-example](https://raw.github.com/bancobpi/style-guide/main/static/bpi-query-parameter-example.png)
+
+## bpi-resource-attributes-enum-max-length
+
+When creating an attribute of type string that represents an enum, the field maxLength must not be filled, because it will throw an error on the code generator.
+
+![bpi-resource-attributes-enum-max-length](https://raw.github.com/bancobpi/style-guide/main/static/bpi-resource-attributes-enum-max-length.png)
+
+## bpi-attribute-name-id-suggestion
+
+When creating an attribute that starts with the keyword id, the rule will suggest to use the keyword Id at the end of the name of the attribute, to be compliant with the defined rules.
+
+![bpi-attribute-name-id-suggestion](https://raw.github.com/bancobpi/style-guide/main/static/bpi-attribute-name-id-suggestion.png)
