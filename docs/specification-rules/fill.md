@@ -83,10 +83,10 @@ When we include a real anonymous example for the query parameter, we can get a r
 
 When creating an attribute of type string that represents an enum, the field maxLength must not be filled, because it will throw an error on the code generator.
 
-![bpi-resource-attributes-enum-max-length](https://raw.github.com/bancobpi/style-guide/attributes-enum-id/static/bpi-resource-attributes-enum-max-length.png)
+![bpi-resource-attributes-enum-max-length](https://raw.github.com/bancobpi/style-guide/main/static/bpi-resource-attributes-enum-max-length.png)
 
 ## bpi-attribute-name-id-suggestion
 
 When creating an attribute that starts with the keyword id, the rule will suggest to use the keyword Id at the end of the name of the attribute, to be compliant with the defined rules.
 
-![bpi-attribute-name-id-suggestion](https://raw.github.com/bancobpi/style-guide/attributes-enum-id/static/bpi-attribute-name-id-suggestion.png)
+![bpi-attribute-name-id-suggestion](https://raw.github.com/bancobpi/style-guide/main/static/bpi-attribute-name-id-suggestion.png)
