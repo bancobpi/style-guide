@@ -132,3 +132,13 @@ rules:
     given: "$..allOf[?(@.$ref && @.$ref.toLowerCase().indexOf('link-self-body') != -1)]"
     then:
       function: undefined
+
+  bpi-audience-validate:
+    description: "Attribute x-fast-audience MUST be added in the info section"
+    message: "Attribute x-fast-audience MUST be added in the info section"
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b66c26f6a6048-schema#bpi-validate-string-id-different-string
+    severity: error
+    given: "$.info"
+    then:
+      field: "x-fast-audience"
+      function: truthy
