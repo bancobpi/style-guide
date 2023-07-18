@@ -136,7 +136,7 @@ rules:
   bpi-audience-validate:
     description: "Attribute x-fast-audience MUST be added in the info section"
     message: "Attribute x-fast-audience MUST be added in the info section"
-    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b66c26f6a6048-schema#bpi-validate-string-id-different-string
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/branches/scopes-audiences-rules/b66c26f6a6048-schema#bpi-audience-validate
     severity: error
     given: "$.info"
     then:

@@ -124,3 +124,9 @@ A new object should be created, containing another object called "_links" with a
             x-stoplight:
               id: 9fey8fp7shaj3
 ```
+
+## bpi-audience-validate
+
+In order to define the intended target audience of the API, the attribute "x-fast-audience" must be defined in the info section as it follows:
+
+![bpi-audience-validate](https://raw.github.com/bancobpi/style-guide/scopes-audiences-rules/static/bpi-audience-validate.png)

@@ -90,3 +90,9 @@ When creating an attribute of type string that represents an enum, the field max
 When creating an attribute that starts with the keyword id, the rule will suggest to use the keyword Id at the end of the name of the attribute, to be compliant with the defined rules.
 
 ![bpi-attribute-name-id-suggestion](https://raw.github.com/bancobpi/style-guide/main/static/bpi-attribute-name-id-suggestion.png)
+
+## bpi-audience-possible-values
+
+In order to control the visibility and access to the APIs, a set of pre-configured audiences have been defined and the filling of the x-fast-audience attribute must be filled based on this set:
+
+![bpi-audience-possible-values](https://raw.github.com/bancobpi/style-guide/scopes-audiences-rules/static/bpi-audience-possible-values.png)
