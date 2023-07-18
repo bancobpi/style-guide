@@ -138,3 +138,19 @@ rules:
       function: pattern
       functionOptions:
         notMatch: '/^id[A-Z]\w*/'
+
+  bpi-audience-possible-values:
+    description: "x-fast-audience attribute MUST be filled with one of the following possibilities: business-external-public|business-external-partner|business-internal|component-internal"
+    message: "x-fast-audience attribute MUST be filled with one of the following possibilities: business-external-public|business-external-partner|business-internal|component-internal"
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-audience-possible-values
+    severity: error
+    given: "$.info.x-fast-audience"
+    then:
+      field: x-fast-audience
+      function: enumeration
+      functionOptions:
+        values: 
+          - "business-external-public"
+          - "business-external-partner"
+          - "business-internal"
+          - "component-internal"
