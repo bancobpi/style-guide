@@ -95,4 +95,4 @@ When creating an attribute that starts with the keyword id, the rule will sugges
 
 In order to control the visibility and access to the APIs, a set of pre-configured audiences have been defined and the filling of the x-fast-audience attribute must be filled based on this set:
 
-![bpi-audience-possible-values](https://raw.github.com/bancobpi/style-guide/scopes-audiences-rules/static/bpi-audience-possible-values.png)
+![bpi-audience-possible-values](https://raw.github.com/bancobpi/style-guide/main/static/bpi-audience-possible-values.png)
