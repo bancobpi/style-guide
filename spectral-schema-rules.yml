@@ -147,7 +147,7 @@ rules:
   bpi-security-scheme-validate:
     description: "A security scheme of type oauth2 MUST be defined in the components section"
     message: "{{error}}"
-    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/branches/scopes-audiences-rules/b66c26f6a6048-schema#pi-security-scheme-validate
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b66c26f6a6048-schema#bpi-security-scheme-validate
     severity: error
     given: "$.components"
     then:
@@ -156,7 +156,7 @@ rules:
   bpi-security-individual-operations:
     description: "Each individual operation MUST reference a security scheme"
     message: "Each individual operation MUST reference a security scheme"
-    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/branches/scopes-audiences-rules/b66c26f6a6048-schema#bpi-security-individual-operations
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b66c26f6a6048-schema#bpi-security-individual-operations
     severity: error
     given: "$.paths..[get,post,put,patch,delete]"
     then:
