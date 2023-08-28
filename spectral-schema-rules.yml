@@ -2,6 +2,7 @@ functions:
   - validate-specific-attribute-type
   - validate-allowed-paths
   - validate-model-common-body
+  - validate-security-scheme-oauth2
 
 rules:
   bpi-request-get-or-delete-no-body-oas3:
@@ -141,4 +142,23 @@ rules:
     given: "$.info"
     then:
       field: "x-fast-audience"
+      function: truthy
+
+  bpi-security-scheme-validate:
+    description: "A security scheme of type oauth2 MUST be defined in the components section"
+    message: "{{error}}"
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b66c26f6a6048-schema#bpi-security-scheme-validate
+    severity: error
+    given: "$.components"
+    then:
+      function: validate-security-scheme-oauth2
+
+  bpi-security-individual-operations:
+    description: "Each individual operation MUST reference a security scheme"
+    message: "Each individual operation MUST reference a security scheme"
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b66c26f6a6048-schema#bpi-security-individual-operations
+    severity: error
+    given: "$.paths..[get,post,put,patch,delete]"
+    then:
+      field: "security"
       function: truthy
