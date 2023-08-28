@@ -7,7 +7,7 @@ module.exports = (input, options, context) => {
   const autoOperationId = buildOperationId(pathParameters[1], pathParameters[2]);
   const manualOperationId = buildManualOperationId(autoOperationId);
 
-  if(autoOperationId.length < 39){
+  if(autoOperationId.length <= 39){
     if(operationId == autoOperationId){
       return;
     }else{
@@ -17,7 +17,7 @@ module.exports = (input, options, context) => {
          }
       ]
     }
-  }else if(manualOperationId.length < 39){
+  }else if(manualOperationId.length <= 39){
     if(operationId == manualOperationId){
       return;
     }else{
@@ -27,7 +27,19 @@ module.exports = (input, options, context) => {
          }
       ]
     }
-  }else{
+  }
+  else if(autoOperationId.length > 39 || manualOperationId.length > 39){
+    if(operationId.length <= 39){
+      return;
+    }else{
+      return [
+        {
+          message: "operationId must be abbreviated to have a maximum of 39 characters."
+         }
+      ]
+    }
+  }
+  else{
     return [
       {
         message: "operationId not compliant. Please contact Design Authority."
