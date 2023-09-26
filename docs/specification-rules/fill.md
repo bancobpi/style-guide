@@ -40,7 +40,7 @@ Each operation must have an operationId that is its path, with - instead of / an
 
 ## bpi-resource-attributes-max-lenght
 
-In order to limit the size of the payload, every string attribute and format other than date, time, date-time, enumeration and binary, must have a max length validation.
+In order to limit the size of the payload, every string attribute (without format defined), must have a max length validation.
 
 ![bpi-resource-attributes-max-lenght](https://raw.github.com/bancobpi/style-guide/main/static/bpi-resource-attributes-max-lenght.jpg)
 
@@ -79,9 +79,9 @@ When we include a real anonymous example for the query parameter, we can get a r
 
 ![bpi-query-parameter-example](https://raw.github.com/bancobpi/style-guide/main/static/bpi-query-parameter-example.png)
 
-## bpi-resource-attributes-enum-max-length
+## bpi-resource-attributes-format-max-length
 
-When creating an attribute of type string that represents an enum, the field maxLength must not be filled, because it will throw an error on the code generator.
+When creating an attribute of type string (with format defined), the field maxLength must not be filled, because it will throw an error on the code generator.
 
 ![bpi-resource-attributes-enum-max-length](https://raw.github.com/bancobpi/style-guide/main/static/bpi-resource-attributes-enum-max-length.png)
 
