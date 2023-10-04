@@ -38,11 +38,11 @@ Each operation must have an operationId that is its path, with - instead of / an
 
 ![bpi-validate-operation-id](https://raw.github.com/bancobpi/style-guide/main/static/bpi-validate-operation-id.jpg)
 
-## bpi-resource-attributes-max-lenght
+## bpi-resource-attributes-max-length
 
 In order to limit the size of the payload, every string attribute (without format defined), must have a max length validation.
 
-![bpi-resource-attributes-max-lenght](https://raw.github.com/bancobpi/style-guide/main/static/bpi-resource-attributes-max-lenght.jpg)
+![bpi-resource-attributes-max-length](https://raw.github.com/bancobpi/style-guide/main/static/bpi-resource-attributes-max-length.jpg)
 
 ## bpi-enumeration-attributes-size
 
@@ -81,7 +81,7 @@ When we include a real anonymous example for the query parameter, we can get a r
 
 ## bpi-resource-attributes-format-max-length
 
-When creating an attribute of type string (with format defined), the field maxLength must not be filled, because it will throw an error on the code generator.
+When creating an attribute of type string (with format defined different than uri), the field maxLength must not be filled, because it will throw an error on the code generator.
 
 ![bpi-resource-attributes-enum-max-length](https://raw.github.com/bancobpi/style-guide/main/static/bpi-resource-attributes-enum-max-length.png)
 
