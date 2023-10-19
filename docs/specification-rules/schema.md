@@ -38,11 +38,15 @@ When designing the paths, we only accept the following http codes [200,201,202,2
 
 ![bpi-validate-ref-verbs](https://raw.github.com/bancobpi/style-guide/master/static/bpi-validate-ref-verbs.jpg)
 
-## bpi-resource-common-body
+## bpi-resource-id-kind
 
-To maintain a standard design for our APIs, there are two main type of resources to reference. The ones at the top left are the global ones, and the ones at the bottom left are the pagination ones. All global resources must be an allOf and the first object be the reference to designLibrary/common-body
+To maintain a standard design for our APIs, it is important to always include the following two attributes (that should be read-only):
+- id: should represent the resource's unique identification, with the maximum length defined and a correct example. 
+- kind: should represent the resource's full name, with the maximum length defined and a correct example.
 
-![bpi-resource-common-body](https://raw.github.com/bancobpi/style-guide/master/static/bpi-resource-common-body.jpg)
+Consider the following example:
+
+![bpi-resource-id-kind](https://raw.github.com/bancobpi/style-guide/master/static/bpi-resource-id-kind.png)
 
 ## bpi-boolean-validate
 

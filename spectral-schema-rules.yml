@@ -64,17 +64,17 @@ rules:
               $ref:
                 type: string
 
-  bpi-resource-common-body:
-    description: In global resources the first object in allOf, MUST be a reference to designLibrary/common-body.
+  bpi-resource-id-kind:
+    description: In a global resource, there MUST be an id and a kind attribute of type string.
     message: "{{error}}"
-    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b66c26f6a6048-schema#bpi-resource-common-body
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b66c26f6a6048-schema#bpi-resource-id-kind
     severity: error
-    given: $.allOf[0]
+    given: $.allOf
     recommended: true
     type: "style"
     resolved: false
     then:
-      function: validate-model-common-body
+      function: validate-model-id-kind
       
   bpi-boolean-validate:
     description: Avoid having boolean types, replace with enum when possible.
