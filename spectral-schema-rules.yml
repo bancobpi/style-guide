@@ -1,7 +1,7 @@
 functions:
   - validate-specific-attribute-type
   - validate-allowed-paths
-  - validate-model-common-body
+  - validate-model-id-kind
   - validate-security-scheme-oauth2
 
 rules:
