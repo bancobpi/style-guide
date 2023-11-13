@@ -162,3 +162,13 @@ rules:
     then:
       field: "security"
       function: truthy
+
+  bpi-enum-type-validation:
+    description: Every enum attribute MUST have a type associated to it. This type needs to be added manually on the 'Code' view.
+    message: Every enum attribute MUST have a type associated to it. This type needs to be added manually on the 'Code' view.
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b66c26f6a6048-schema#bpi-enum-type-validation
+    severity: error
+    given: $..properties[?(@.enum)]*
+    then:
+      field: type
+      function: truthy

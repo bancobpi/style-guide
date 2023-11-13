@@ -146,3 +146,9 @@ To limit an application's access to a user's account, it is necessary to define 
 Each operation must reference the created security schema to apply the corresponding scope as it follows:
 
 ![bpi-security-individual-operations](https://raw.github.com/bancobpi/style-guide/main/static/bpi-security-individual-operations.png)
+
+## bpi-enum-type-validation
+
+Every enum attribute must have its type defined. Currently, when defining an enum, Stoplight is not automatically defining the type, so it has to be done manually via the Code view, instead of the Form view. It should be done as it follows:
+
+![bpi-enum-type-validation](https://raw.github.com/bancobpi/style-guide/main/static/bpi-enum-type-validation.png)
