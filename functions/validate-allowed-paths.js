@@ -9,9 +9,12 @@ export default (targetValue,options, context) => {
     const verb = pathComplete[2];
     var name = pathComplete[2];
     const splitId = pathComplete[1].split("/");
-    const path = pathComplete[1]
+    const endpoint = pathComplete[1];
 
-    if (verb == "get" || verb == "post") {
+    if(verb == "post" && endpoint.startsWith("/search")) {
+      name = verb + "ForSearch";
+    } 
+    else if (verb == "get" || verb == "post") {
       if (splitId.length == 3) {
         name = verb + "ById";
       }else if (splitId.length == 4) {

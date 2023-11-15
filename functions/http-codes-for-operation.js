@@ -7,10 +7,14 @@ export default (targetValue,options, context) => {
 
     const path = context.path.toString().split(",");
     const verb = path[2];
+    const endpoint = path[1];
     const splitId = path[1].split("/");
     var name = path[2];
 
-    if (verb == "get" || verb == "post") {
+    if(verb == "post" && endpoint.startsWith("/search")) {
+      name = verb + "ForSearch";
+    }
+    else if (verb == "get" || verb == "post") {
       if (splitId.length == 3) {
         name = verb + "ById";
       }else if (splitId.length == 4) {
