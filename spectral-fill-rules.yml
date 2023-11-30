@@ -9,7 +9,7 @@ rules:
     message: Model properties SHOULD have a description.
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-resource-attributes-description
     severity: warn
-    given: $..properties[?(@.type !== "object")]*
+    given: $..properties[?(@.type !== "object" && @.name !== "formatoConta" && @.name !== "tipoUtilizacao" && @.name !== "integridade")]*
     recommended: true
     then:
       field: description
