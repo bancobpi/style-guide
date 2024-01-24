@@ -65,7 +65,7 @@ rules:
                 type: string
 
   bpi-resource-id-kind:
-    description: In a global resource, there MUST be an id and a kind attribute of type string.
+    description: In a global resource, there MUST be an id and a kind attribute of type string or a reference to a canonical type.
     message: "{{error}}"
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b66c26f6a6048-schema#bpi-resource-id-kind
     severity: error

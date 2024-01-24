@@ -44,6 +44,8 @@ To maintain a standard design for our APIs, it is important to always include th
 - id: should represent the resource's unique identification, with the maximum length defined and a correct example. 
 - kind: should represent the resource's full name, with the maximum length defined and a correct example.
 
+Both should be of type string or a reference to a canonical type.
+
 Consider the following example:
 
 ![bpi-resource-id-kind](https://raw.github.com/bancobpi/style-guide/master/static/bpi-resource-id-kind.png)
