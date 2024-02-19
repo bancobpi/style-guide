@@ -14,11 +14,11 @@ For each verb we have a specific list of http codes that we must respect:
 
 verb           | allowed http codes            | example path
 ---------------|-------------------------------|---------
- get           | 200,400,500                   | /stores
+ get           | 200,206,400,500               | /stores
  getWithId     | 200,206,400,404,500           | /stores/{id}/accounting-days
  getById       | 200,400,404,500               | /stores/{id}
  post          | 201 or 202 and 400,409,500    | /stores
  postWithId    | 201 or 202 and 400,404,409,500| /stores/{id}/accounting-days
- postForSearch | 200,400,500                   | /search-transactions
+ postForSearch | 200,206,400,500               | /search-transactions
  put           | 200,400,404,409,500           | /products/{id}
- delete        | 204,400,404,409,500           | /accounting-days/{id}
+ delete        | 200 or 204 and 400,404,409,500| /accounting-days/{id}
