@@ -11,7 +11,9 @@ module.exports = (input, options, context) => {
   }
 
   for (const item of input) {
-    if (item.properties && item.properties.id && item.properties.kind && item.properties.id.type === 'string' && item.properties.kind.type === 'string') {
+    if (item.properties && item.properties.id && item.properties.kind && 
+      (item.properties.id.type === 'string' || item.properties.id.$ref) && 
+      (item.properties.kind.type === 'string' || item.properties.kind.$ref)) {
       return []
     }
   }
