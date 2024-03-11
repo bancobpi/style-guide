@@ -142,13 +142,50 @@ In order to define the intended target audience of the API, the attribute "x-fas
 
 To limit an application's access to a user's account, it is necessary to define scopes. Scopes are defined in the security schema section. FAST has a pre-defined security schema that is defined as it follows and that should be included under the components section:
 
-![bpi-security-scheme-validate](https://raw.github.com/bancobpi/style-guide/main/static/bpi-security-scheme-validate.png)
+```
+securitySchemes:
+  bpiOAuth2:
+    type: oauth2
+    flows:
+      clientCredentials:
+        tokenUrl: /oauth2/token
+        refreshUrl: ''
+        scopes:
+          petstore.consult: consult access to pet information
+          petstore.create: create access to pet information
+      authorizationCode:
+        authorizationUrl: /oauth2/authorize
+        tokenUrl: /oauth2/token
+        refreshUrl: ''
+        scopes:
+          petstore.consult: consult access to pet information
+          petstore.create: create access to pet information
+```
+
+![security-schemes-stoplight](https://raw.github.com/bancobpi/style-guide/main/static/security-schemes-stoplight.png)
 
 ## bpi-security-individual-operations
 
 Each operation must reference the created security schema to apply the corresponding scope as it follows:
 
-![bpi-security-individual-operations](https://raw.github.com/bancobpi/style-guide/main/static/bpi-security-individual-operations.png)
+```
+paths:
+  /pets:
+    get:
+      summary: Get a pet
+      operationId: get-pets
+      security:
+        - bpiOAuth2:
+            - petstore.consult
+    post:
+      summary: Add a new pet
+      operationId: post-pets
+      security:
+        - bpiOAuth2:
+            - petstore.create
+```
+
+![scopes-stoplight](https://raw.github.com/bancobpi/style-guide/main/static/scopes-stoplight.png)
 
 ## bpi-enum-type-validation
 
