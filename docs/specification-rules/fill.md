@@ -34,7 +34,7 @@ To support pagination, these two attributes are needed in the queryParameters.
 
 ## bpi-validate-operation-id
 
-Each operation must have an operationId that is its path, with - instead of / and starting with the verb. This operationId is important for internal processes
+Each operation must have an operationId that is its path, with - instead of / and starting with the verb. This operationId is important for internal processes. This rule also ensures that the combination of this operationId with the securityId is less than or equal to 43 characters.
 
 ![bpi-validate-operation-id](https://raw.github.com/bancobpi/style-guide/main/static/bpi-validate-operation-id.jpg)
 
@@ -96,3 +96,21 @@ When creating an attribute that starts with the keyword id, the rule will sugges
 In order to control the visibility and access to the APIs, a set of pre-configured audiences have been defined and the filling of the x-fast-audience attribute must be filled based on this set:
 
 ![bpi-audience-possible-values](https://raw.github.com/bancobpi/style-guide/main/static/bpi-audience-possible-values.png)
+
+## bpi-resource-title-length
+
+The title of each resource defined under the components or models folder must be less than or equal to 50 characters.
+
+## bpi-security-id-length
+
+The securityId field defined in the x-fast-api-metadata extension must be less than or equal to 20 characters.
+
+![bpi-security-id-length](https://raw.github.com/bancobpi/style-guide/main/static/bpi-audience-possible-values.png)
+
+## bpi-validate-scopes
+
+This rule ensures that the created scopes under the securitySchemes component is compliant with the following rules:
+- It follows the defined naming convention: <securityId>.<access-mode>
+- Ensures that <securityId>.<access-mode> is less than or equal to 43 characters.
+- Validates that <securityId> is equal to the one defined in the x-fast-api-metadata extension.
+- Guarantees that <access-mode> is compliant with the following regex: /^[a-zA-Z0-9]+$/
