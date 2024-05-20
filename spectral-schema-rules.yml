@@ -3,6 +3,7 @@ functions:
   - validate-allowed-paths
   - validate-model-id-kind
   - validate-security-scheme-oauth2
+  - validate-api-extension
 
 rules:
   bpi-request-get-or-delete-no-body-oas3:
@@ -172,3 +173,14 @@ rules:
     then:
       field: type
       function: truthy
+
+  bpi-validate-api-extensions:
+    description: The defined extensions MUST be included in the API in order to provide additional information.
+    message: "{{error}}"
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b66c26f6a6048-schema#bpi-validate-api-extensions
+    severity: error
+    given: "$"
+    then:
+      function: validate-api-extension
+      functionOptions:
+        extensions: ["x-fast-api-metadata", "x-domains-metadata"]

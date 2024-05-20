@@ -192,3 +192,11 @@ paths:
 Every enum attribute must have its type defined. Currently, when defining an enum, Stoplight is not automatically defining the type, so it has to be done manually via the Code view, instead of the Form view. It should be done as it follows:
 
 ![bpi-enum-type-validation](https://raw.github.com/bancobpi/style-guide/main/static/bpi-enum-type-validation.png)
+
+## bpi-validate-api-extensions
+
+This rule ensures that the defined API contains the mandatory extensions needed in order to describe the necessary additional information of the API:
+- x-fast-api-metadata
+- x-domains-metadata
+
+![bpi-validate-api-extensions](https://raw.github.com/bancobpi/style-guide/main/static/bpi-enum-type-validation.png)
