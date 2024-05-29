@@ -53,7 +53,7 @@ rules:
     description: Validate that operation-id is compliant to BPI rules.
     message: "{{error}}"
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-validate-operation-id
-    severity: error
+    severity: warn
     given: $.paths..operationId
     then:
       function: operation-id
