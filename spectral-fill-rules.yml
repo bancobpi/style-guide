@@ -41,7 +41,7 @@ rules:
         function: truthy
 
   bpi-query-parameters-pagination:
-    description: To pagintation is mandatory have `pageNumber` e `pageSize` in queryParameters.
+    description: To implement pagination is mandatory to have `pageNumber` and `pageSize` as query parameters.
     message: "{{error}}"
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-query-parameters-pagination
     severity: error

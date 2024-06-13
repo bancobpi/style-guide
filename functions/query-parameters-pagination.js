@@ -6,10 +6,11 @@ export default (targetValue,options, context) => {
   const verb = path[2];
   const splitId = path[1].split("/");   
   var name = path[2];
+  const endpoint = path[1];
   const result = [];
   const query = targetValue.parameters;
 
-  if (verb == "get" && splitId.length != 3){
+  if (verb == "get" && splitId.length != 3 && !endpoint.startsWith("/async/")){
     if(query != undefined){
      const pagintationParams = query.filter(
         (param) =>
