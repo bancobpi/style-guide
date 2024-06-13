@@ -121,7 +121,7 @@ rules:
     then:
       function: validate-allowed-paths
       functionOptions:
-        'paths': get,getWithId,getById,post,postWithId,postForSearch,put,delete
+        'paths': get,getWithId,getById,getAsyncId,post,postWithId,postForSearch,postAsync,put,delete
 
   bpi-deprecated-link-self-body:
     description: "Type link-self-body is deprecated and MUST not be used"

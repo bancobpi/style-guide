@@ -14,7 +14,13 @@ export default (targetValue,options, context) => {
     if(verb == "post" && endpoint.startsWith("/search")) {
       name = verb + "ForSearch";
     }
-    else if (verb == "get" || verb == "post") {
+    else if(verb == "post" && splitId.length == 3 && endpoint.startsWith("/async/")) {
+      name = verb + "Async";
+    }
+    else if(verb == "get" && splitId.length == 4 && endpoint.startsWith("/async/")) {
+      name = verb + "AsyncId";
+    }
+    else if ((verb == "get" || verb == "post") && !endpoint.startsWith("/async/")) {
       if (splitId.length == 3) {
         name = verb + "ById";
       }else if (splitId.length == 4) {
