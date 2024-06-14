@@ -100,9 +100,11 @@ Verb           | Path Example
  get           | /stores
  getWithId     | /stores/{id}/accounting-days
  getById       | /accounting-days/{id}
+ getAsyncId    | /async/employee-accounts/{id}
  post          | /stores
  postWithId    | /stores/{id}/accounting-days 
  postForSearch | /search-transactions
+ postAsync     | /async/employee-accounts
  put           | /products/{id}
  delete        | /accounting-days/{id}
 
