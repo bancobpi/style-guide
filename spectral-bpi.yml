@@ -5,3 +5,6 @@ extends:
   - ./spectral-status-code-rules.yml
   - ./spectral-fill-rules.yml
   - ./spectral-commons-rules.yml
+
+ignore:
+  - 'docs/**/*'
