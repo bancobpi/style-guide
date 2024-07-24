@@ -4,6 +4,7 @@ functions:
   - validate-model-id-kind
   - validate-security-scheme-oauth2
   - validate-api-extension
+  - validate-link-self-body
 
 rules:
   bpi-request-get-or-delete-no-body-oas3:
@@ -125,15 +126,17 @@ rules:
 
   bpi-deprecated-link-self-body:
     description: "Type link-self-body is deprecated and MUST not be used"
-    message: "Type link-self-body is deprecated and MUST not be used"
+    message: "{{error}}"
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b66c26f6a6048-schema#bpi-deprecated-link-self-body
     severity: error
     recommended: true
     type: "style"
     resolved: false
-    given: "$..allOf[?(@.$ref && @.$ref.toLowerCase().indexOf('link-self-body') != -1)]"
+    given: "$..$ref"
     then:
-      function: undefined
+      function: validate-link-self-body
+      functionOptions:
+        string: link-self-body
 
   bpi-audience-validate:
     description: "Attribute x-fast-audience MUST be added in the info section"
