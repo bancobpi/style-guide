@@ -186,3 +186,69 @@ rules:
     given: $.components.securitySchemes..scopes
     then:
       function: validate-scopes
+
+  bpi-resource-attributes-pattern:
+    description: Every attribute of type string (without a format defined) should have the pattern filled.
+    message: All attributes of type string (without a format defined) should have pattern filled.
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-resource-attributes-pattern
+    given: $..properties[?(@.type == "string" && !@.format && !@.enum)]*
+    severity: warn
+    then:
+      - field: pattern
+        function: truthy
+
+  bpi-resource-attributes-integer:
+    description: You should define if your integer attribute is int32 or int64.
+    message: Every attribute of type integer should have its format defined.
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-resource-attributes-integer
+    given: $..properties[?(@.type == "integer")]*
+    severity: warn
+    then:
+      - field: format
+        function: truthy
+      - field: format
+        function: enumeration
+        functionOptions:
+          values: 
+            - "int32"
+            - "int64"
+
+  bpi-resource-attributes-integer-min-max:
+    description: You should define a minimum and maximum value for an integer attribute.
+    message: Every attribute of type integer must have a minimum and maximum.
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-resource-attributes-integer-min-max
+    given: $..properties[?(@.type == "integer")]*
+    severity: error
+    then:
+      - field: minimum
+        function: truthy
+      - field: maximum
+        function: truthy
+
+  bpi-resource-attributes-number:
+    description: You should define if your number attribute is float or double.
+    message: Every attribute of type number should have its format defined.
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-resource-attributes-number
+    given: $..properties[?(@.type == "number")]*
+    severity: warn
+    then:
+      - field: format
+        function: truthy
+      - field: format
+        function: enumeration
+        functionOptions:
+          values: 
+            - "float"
+            - "double"
+
+  bpi-resource-attributes-number-min-max:
+    description: You should define a minimum and maximum value for a number attribute.
+    message: Every attribute of type number must have a minimum and maximum.
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-resource-attributes-number-min-max
+    given: $..properties[?(@.type == "number")]*
+    severity: error
+    then:
+      - field: minimum
+        function: truthy
+      - field: maximum
+        function: truthy
