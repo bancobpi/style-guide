@@ -214,16 +214,16 @@ rules:
             - "int64"
 
   bpi-resource-attributes-integer-min-max:
-    description: You should define a minimum and maximum value for an integer attribute.
+    description: You must define a minimum and maximum value for an integer attribute.
     message: Every attribute of type integer must have a minimum and maximum.
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-resource-attributes-integer-min-max
     given: $..properties[?(@.type == "integer")]*
     severity: error
     then:
       - field: minimum
-        function: truthy
+        function: defined
       - field: maximum
-        function: truthy
+        function: defined
 
   bpi-resource-attributes-number:
     description: You should define if your number attribute is float or double.
@@ -242,13 +242,83 @@ rules:
             - "double"
 
   bpi-resource-attributes-number-min-max:
-    description: You should define a minimum and maximum value for a number attribute.
+    description: You must define a minimum and maximum value for a number attribute.
     message: Every attribute of type number must have a minimum and maximum.
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-resource-attributes-number-min-max
     given: $..properties[?(@.type == "number")]*
     severity: error
     then:
       - field: minimum
-        function: truthy
+        function: defined
       - field: maximum
+        function: defined
+
+  bpi-resource-attributes-array-min-max:
+    description: You must define a minimum and maximum number of items for an array attribute.
+    message: Every attribute of type array must have a minimum and maximum number of items.
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-resource-attributes-array-min-max
+    given: $..properties[?(@.type == "array")]*
+    severity: error
+    then:
+      - field: minItems
+        function: defined
+      - field: maxItems
+        function: defined
+
+  bpi-resource-attributes-array-items:
+    description: You must define the type of the items for an array attribute. They can have a predefined subtype or could be a reference for a created schema.
+    message: Every attribute of type array must have the type of its items defined.
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-resource-attributes-array-items
+    given: $..properties[?(@.type == "array")]*
+    severity: error
+    then:
+      - field: items
         function: truthy
+
+  bpi-resource-attributes-array-different-items:
+    description: You shouldn't define different types of items for an array attribute. Using oneOf or anyOf is not recommended.
+    message: Every attribute of type array shouldn't have different types for its items.
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-resource-attributes-array-different-items
+    given: $..properties[?(@.type == "array")].items
+    severity: warn
+    then:
+      - field: oneOf
+        function: undefined
+      - field: anyOf
+        function: undefined
+
+  bpi-resource-attributes-object-properties:
+    description: You should define the properties for every object attribute with the necessary content.
+    message: Every attribute of type object should have its properties defined.
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-resource-attributes-object-properties
+    given: $..[?(@.type == 'object')]
+    severity: warn
+    then:
+      field: properties
+      function: truthy
+
+  bpi-responses-json:
+    description: You should define the properties for every object attribute with the necessary content.
+    message: Response content type should be application/json or application/problem+json
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-responses-json
+    given: $.paths[*][*].responses[*].content
+    severity: warn
+    then:
+      field: "@key"
+      function: enumeration
+      functionOptions:
+        values:
+        - application/json
+        - application/problem+json
+
+  bpi-resource-attributes-canonical-types:
+    description: Attribute names must not be keywords unless they are references
+    message: "Attribute '{{property}}' is not allowed as it matches a restricted keyword"
+    given: $..properties
+    then:
+      field: "@key"
+      function: enumeration
+      functionOptions:
+        values:
+        - taxIdentificationNumber
+        - application/problem+json
