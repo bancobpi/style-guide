@@ -4,6 +4,7 @@ functions:
   - includes-string
   - validate-scopes
   - validate-resource-title
+  - validate-canonical-types
   
 rules:
   bpi-resource-attributes-description:
@@ -312,13 +313,12 @@ rules:
         - application/problem+json
 
   bpi-resource-attributes-canonical-types:
-    description: Attribute names must not be keywords unless they are references
-    message: "Attribute '{{property}}' is not allowed as it matches a restricted keyword"
+    description: Validate if the attribute could have a reference to an existing canonical type.
+    message: "{{error}}"
     given: $..properties
+    severity: info
     then:
-      field: "@key"
-      function: enumeration
+      function: validate-canonical-types
       functionOptions:
-        values:
-        - taxIdentificationNumber
-        - application/problem+json
+        canonicalTypes: ["accountGroup", "accountNumber", "iban", "nib", "customer", "holderEnterprise", "nif", "participatedEnterprise",
+                    "amount", "currency"]
