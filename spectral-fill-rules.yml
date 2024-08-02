@@ -4,9 +4,7 @@ functions:
   - includes-string
   - validate-scopes
   - validate-resource-title
-  - validate-canonical-types
   - validate-sensitive-information
-  - validate-duplicated-canonical-type
   
 rules:
   bpi-resource-attributes-description:
@@ -268,64 +266,6 @@ rules:
       - field: maxItems
         function: defined
 
-  bpi-resource-attributes-array-items:
-    description: You must define the type of the items for an array attribute. They can have a predefined subtype or could be a reference for a created schema.
-    message: Every attribute of type array must have the type of its items defined.
-    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-resource-attributes-array-items
-    given: $..properties[?(@.type == "array")]*
-    severity: error
-    then:
-      - field: items
-        function: truthy
-
-  bpi-resource-attributes-array-different-items:
-    description: You shouldn't define different types of items for an array attribute. Using oneOf or anyOf is not recommended.
-    message: Every attribute of type array shouldn't have different types for its items.
-    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-resource-attributes-array-different-items
-    given: $..properties[?(@.type == "array")].items
-    severity: warn
-    then:
-      - field: oneOf
-        function: undefined
-      - field: anyOf
-        function: undefined
-
-  bpi-resource-attributes-object-properties:
-    description: You should define the properties for every object attribute with the necessary content.
-    message: Every attribute of type object should have its properties defined.
-    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-resource-attributes-object-properties
-    given: $..[?(@.type == 'object')]
-    severity: warn
-    then:
-      field: properties
-      function: truthy
-
-  bpi-responses-json:
-    description: You should define the properties for every object attribute with the necessary content.
-    message: Response content type should be application/json or application/problem+json
-    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-responses-json
-    given: $.paths[*][*].responses[*].content
-    severity: warn
-    then:
-      field: "@key"
-      function: enumeration
-      functionOptions:
-        values:
-        - application/json
-        - application/problem+json
-
-  bpi-resource-attributes-canonical-types:
-    description: Validate if the attribute could have a reference to an existing canonical type.
-    message: "{{error}}"
-    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-resource-attributes-canonical-types
-    given: $..properties
-    severity: info
-    then:
-      function: validate-canonical-types
-      functionOptions:
-        canonicalTypes: ["accountGroup", "accountNumber", "iban", "nib", "customer", "holderEnterprise", "nif", "participatedEnterprise",
-                    "amount", "currency"]
-
   bpi-resource-attributes-sensitive-information:
     description: Please make sure that this attribute is really necessary to include in the resource, since it is considered sensitive information.
     message: "{{error}}"
@@ -338,12 +278,3 @@ rules:
       functionOptions:
         keywords: ["accountNumber", "creditCardNumber", "socialSecurityNumber", "customerId", "bankAccountBalance", "transactionHistory", 
         "accountHolderName", "securityCode", "personalIdentificationNumber", "bankRoutingNumber"]
-
-  bpi-resource-attributes-duplicated-canonical-type:
-    description: It is not possible to make more than one reference to the same canonical type per resource.
-    message: "{{error}}"
-    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-resource-attributes-duplicated-canonical-type
-    given: $..properties
-    severity: error
-    then:
-      function: validate-duplicated-canonical-type
