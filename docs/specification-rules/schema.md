@@ -202,3 +202,47 @@ This rule ensures that the defined API contains the mandatory extensions needed 
 - x-domains-metadata
 
 ![bpi-validate-api-extensions](https://raw.github.com/bancobpi/style-guide/main/static/bpi-enum-type-validation.png)
+
+## bpi-resource-attributes-array-items
+
+Whenever an attribute is of type array, it is mandatory to define the type of the items. They can have a predefined subtype or could be a reference for a created schema.
+
+![bpi-resource-attributes-array-items](https://raw.github.com/bancobpi/style-guide/main/static/bpi-resource-attributes-array-items.png)
+
+## bpi-resource-attributes-array-different-items
+
+Whenever an attribute is of type array, it is recommended that its items are all from the same type. Taking this into consideration, it is not recommended to use the combine schemas option in the GUI, since it allows the use of oneOf and anyOf to combine multiple schemas for the items.
+
+It is recommended to use a predefined subtype or a reference for a created schema.
+
+![bpi-resource-attributes-array-different-items](https://raw.github.com/bancobpi/style-guide/main/static/bpi-resource-attributes-array-different-items.png)
+
+## bpi-resource-attributes-object-properties
+
+When an object is defined in the context of a resource, it is always important that the properties are defined, since it will be in this section where the object's attributes will be defined.
+
+![bpi-resource-attributes-object-properties](https://raw.github.com/bancobpi/style-guide/main/static/bpi-resource-attributes-object-properties.png)
+
+## bpi-responses-json
+
+It is recommended that the response content type is application/json or application/problem+json. If there is a need to use another type of response, it is necessary to evaluate its purpose.
+
+![bpi-responses-json](https://raw.github.com/bancobpi/style-guide/main/static/bpi-responses-json.png)
+
+## bpi-resource-attributes-canonical-types
+
+Whenever it is detected that the name of an attribute may be a reference to an existing canonical type, it is created an alert information suggesting this use.
+
+Please consult the available "Canonical Types" projects to check the available canonical types. Normally, the name of the attribute that you used and triggered this alert is the same name of the canonical type. 
+
+To reference a canonical type, click on the current defined type (string, for example), then go to "Components" and search for the canonical type.
+
+![bpi-resource-attributes-canonical-types](https://raw.github.com/bancobpi/style-guide/main/static/bpi-resource-attributes-canonical-types.png)
+
+## bpi-resource-attributes-duplicated-canonical-type
+
+Due to a current limitation in the Access Manager, it is not possible to have more than one attribute referencing the same canonical type. 
+
+If this scenario occurs, it is necessary to choose one attribute that is going to be validated in the Access Manager and remove the reference to the canonical type on the other(s).
+
+![bpi-resource-attributes-duplicated-canonical-type](https://raw.github.com/bancobpi/style-guide/main/static/bpi-resource-attributes-duplicated-canonical-type.png)

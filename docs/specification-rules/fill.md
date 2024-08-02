@@ -114,3 +114,56 @@ This rule ensures that the created scopes under the securitySchemes component is
 - Ensures that <securityId>.<access-mode> is less than or equal to 43 characters.
 - Validates that <securityId> is equal to the one defined in the x-fast-api-metadata extension.
 - Guarantees that <access-mode> is compliant with the following regex: /^[a-zA-Z0-9]+$/
+
+## bpi-resource-attributes-pattern
+
+It is important that every string without a format defined have a pattern defined, in order to limit the possible values of a certain attribute to a certain regex.
+
+![bpi-resource-attributes-pattern](https://raw.github.com/bancobpi/style-guide/main/static/bpi-resource-attributes-pattern.png)
+
+## bpi-resource-attributes-integer
+
+Whenever an attribute is of type integer, it is recommended that its format should be defined. This format can be int32 or int64.
+
+![bpi-resource-attributes-integer](https://raw.github.com/bancobpi/style-guide/main/static/bpi-resource-attributes-integer.png)
+
+## bpi-resource-attributes-integer-min-max
+
+Whenever an attribute is of type integer, it is mandatory to define a minimum and maximum value.
+
+![bpi-resource-attributes-integer-min-max](https://raw.github.com/bancobpi/style-guide/main/static/bpi-resource-attributes-integer-min-max.png)
+
+## bpi-resource-attributes-number
+
+Whenever an attribute is of type number, it is recommended that its format should be defined. This format can be float or double.
+
+![bpi-resource-attributes-number](https://raw.github.com/bancobpi/style-guide/main/static/bpi-resource-attributes-number.png)
+
+## bpi-resource-attributes-number-min-max
+
+Whenever an attribute is of type number, it is mandatory to define a minimum and maximum value.
+
+![bpi-resource-attributes-number-min-max](https://raw.github.com/bancobpi/style-guide/main/static/bpi-resource-attributes-number-min-max.png)
+
+## bpi-resource-attributes-array-min-max
+
+Whenever an attribute is of type array, it is mandatory to define the minimum and maximum number of items for that array. You can do that by defining the minItems and maxItems.
+
+![bpi-resource-attributes-array-min-max](https://raw.github.com/bancobpi/style-guide/main/static/bpi-resource-attributes-array-min-max.png)
+
+## bpi-resource-attributes-sensitive-information
+
+There is a list of keywords that are considered to be sensitive information:
+
+- accountNumber
+- creditCardNumber
+- socialSecurityNumber
+- customerId
+- bankAccountBalance
+- transactionHistory
+- accountHolderName
+- securityCode
+- personalIdentificationNumber
+- bankRoutingNumber
+
+If there is an attribute using these keywords, it is important to consider and make sure that it is really necessary to expose that type of sensitive information.
