@@ -54,3 +54,9 @@ Following the same pattern of the attributes, we decided that the parameters mus
 Following what seems to be one of the main standards, enumeration entries must be in snake_case
 
 ![bpi-enum-snake-case](https://raw.github.com/bancobpi/style-guide/main/static/bpi-enum-snake-case.jpg)
+
+## bpi-headers-kebab-case
+
+Following the same pattern of the resources, we decided that the headers must be in kebab-case.
+
+![bpi-headers-kebab-case](https://raw.github.com/bancobpi/style-guide/main/static/bpi-headers-kebab-case.png)

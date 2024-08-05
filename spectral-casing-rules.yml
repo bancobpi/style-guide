@@ -42,11 +42,11 @@ rules:
         type: camel
 
   bpi-parameters-camel-case:
-    description: The parameters value must be camelCase.
-    message: Parameters MUST be camelCase.
+    description: The query parameters value must be camelCase.
+    message: Query parameters MUST be camelCase.
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMjEyNzYw-case#bpi-parameters-camel-case
     severity: error
-    given: $.paths.*.*.parameters.*.name
+    given: $.paths.*.*.parameters[?(@.in == 'query')].name
     then:
       function: casing
       functionOptions:
@@ -63,3 +63,14 @@ rules:
       function: casing
       functionOptions:
         type: snake
+
+  bpi-headers-kebab-case:
+    description: The header value must be kebab-case.
+    message: Headers MUST be kebab-cased.
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/ZG9jOjUxMjEyNzYw-case#bpi-headers-kebab-case
+    severity: error
+    given: $.paths.*.*.parameters[?(@.in == 'header')].name
+    then:
+      function: casing
+      functionOptions:
+        type: kebab

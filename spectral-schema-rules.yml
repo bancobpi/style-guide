@@ -5,6 +5,7 @@ functions:
   - validate-security-scheme-oauth2
   - validate-api-extension
   - validate-link-self-body
+  - validate-attribute-id
 
 rules:
   bpi-request-get-or-delete-no-body-oas3:
@@ -106,12 +107,9 @@ rules:
     message: "{{error}}"
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b66c26f6a6048-schema#bpi-validate-string-id-different-string
     severity: info
-    given: $..properties.*^
+    given: $..properties[?(@.type != 'string' && !(@.type == 'array' && @.items.type == 'string'))]
     then:
-      function: validate-specific-attribute-type
-      functionOptions: 
-        string: Id
-        type: string
+      function: validate-attribute-id
 
   bpi-validate-allowed-paths:
     description: MUST use the PATHS defined in variable 'paths'.
@@ -137,16 +135,6 @@ rules:
       function: validate-link-self-body
       functionOptions:
         string: link-self-body
-
-  bpi-audience-validate:
-    description: "Attribute x-fast-audience MUST be added in the info section"
-    message: "Attribute x-fast-audience MUST be added in the info section"
-    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b66c26f6a6048-schema#bpi-audience-validate
-    severity: error
-    given: "$.info"
-    then:
-      field: "x-fast-audience"
-      function: truthy
 
   bpi-security-scheme-validate:
     description: "A security scheme of type oauth2 MUST be defined in the components section"

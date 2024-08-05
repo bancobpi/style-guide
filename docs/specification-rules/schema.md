@@ -134,12 +134,6 @@ A new object should be created, containing another object called "_links" with a
               id: 9fey8fp7shaj3
 ```
 
-## bpi-audience-validate
-
-In order to define the intended target audience of the API, the attribute "x-fast-audience" must be defined in the info section as it follows:
-
-![bpi-audience-validate](https://raw.github.com/bancobpi/style-guide/main/static/bpi-audience-validate.png)
-
 ## bpi-security-scheme-validate
 
 To limit an application's access to a user's account, it is necessary to define scopes. Scopes are defined in the security schema section. FAST has a pre-defined security schema that is defined as it follows and that should be included under the components section:
