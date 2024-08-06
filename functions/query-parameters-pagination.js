@@ -22,14 +22,12 @@ export default (targetValue,options, context) => {
             message: "GET List MUST have pagination query parameters 'pageNumber' and 'pageSize'."
           });
         }else{
-          if(pagintationParams[0].required && pagintationParams[0].schema.default
-            && pagintationParams[1].required && pagintationParams[1].schema.default
-          ) {
+          if(pagintationParams[0].required && pagintationParams[1].required) {
             return result;
           }
           else {
             result.push({
-              message: "'pageNumber' and 'pageSize' MUST have a default value and be required."
+              message: "'pageNumber' and 'pageSize' MUST be required."
             });
           }
         } 

@@ -26,9 +26,9 @@ Currently we only allow http codes [200,201,202,206,400,404,409,500]. When these
 
 ## bpi-query-parameters-pagination
 
-In the case of Lists, it is necessary that there always exist queryParameters, even if only the paging ones.
+In the case of Lists, it is necessary that there always exist query parameters, even if only the pagination ones.
 
-To support pagination, these two attributes are needed in the queryParameters.
+To support pagination, these two attributes are required in the query parameters.
 
 ![bpi-query-parameters-pagination](https://raw.github.com/bancobpi/style-guide/main/static/bpi-query-parameters-pagination.jpg)
 
