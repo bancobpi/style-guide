@@ -22,7 +22,14 @@ export default (targetValue,options, context) => {
             message: "GET List MUST have pagination query parameters 'pageNumber' and 'pageSize'."
           });
         }else{
-          return result;
+          if(pagintationParams[0].required && pagintationParams[1].required) {
+            return result;
+          }
+          else {
+            result.push({
+              message: "'pageNumber' and 'pageSize' MUST be required."
+            });
+          }
         } 
       }else{
         result.push({

@@ -26,9 +26,9 @@ Currently we only allow http codes [200,201,202,206,400,404,409,500]. When these
 
 ## bpi-query-parameters-pagination
 
-In the case of Lists, it is necessary that there always exist queryParameters, even if only the paging ones.
+In the case of Lists, it is necessary that there always exist query parameters, even if only the pagination ones.
 
-To support pagination, these two attributes are needed in the queryParameters.
+To support pagination, these two attributes are required in the query parameters.
 
 ![bpi-query-parameters-pagination](https://raw.github.com/bancobpi/style-guide/main/static/bpi-query-parameters-pagination.jpg)
 
@@ -93,7 +93,11 @@ When creating an attribute that starts with the keyword id, the rule will sugges
 
 ## bpi-audience-possible-values
 
-In order to control the visibility and access to the APIs, a set of pre-configured audiences have been defined and the filling of the x-fast-audience attribute must be filled based on this set:
+In order to define the intended target audience of the API, the attribute "x-fast-audience" must be defined in the info section as it follows:
+
+![bpi-audience-validate](https://raw.github.com/bancobpi/style-guide/main/static/bpi-audience-validate.png)
+
+x-fast-audience attribute must be filled based on this set of possible values:
 
 ![bpi-audience-possible-values](https://raw.github.com/bancobpi/style-guide/main/static/bpi-audience-possible-values.png)
 
