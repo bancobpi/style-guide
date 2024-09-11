@@ -4,18 +4,18 @@ functions:
   - includes-string
   - validate-scopes
   - validate-resource-title
+  - validate-resource-description
   
 rules:
   bpi-resource-attributes-description:
     description: Every attribute inside properties SHOULD have the description.
-    message: Model properties SHOULD have a description.
+    message: "{{error}}"
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-resource-attributes-description
     severity: warn
-    given: $..properties[?(@.type !== "object" && @.name !== "formatoConta" && @.name !== "tipoUtilizacao" && @.name !== "integridade")]*
+    given: $..properties[?(@.type !== "object")]*
     recommended: true
     then:
-      field: description
-      function: truthy
+      function: validate-resource-description
 
   bpi-resource-attributes-examples:
     description: Model property `examples` SHOULD be present and non-empty string.
