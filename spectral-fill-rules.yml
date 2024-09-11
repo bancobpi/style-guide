@@ -54,7 +54,7 @@ rules:
     message: "{{error}}"
     documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b7c5ed794d032-fill#bpi-validate-operation-id
     severity: warn
-    given: $.paths..operationId
+    given: $.paths.*.*.operationId
     then:
       function: operation-id
 
