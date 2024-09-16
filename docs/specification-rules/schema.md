@@ -196,3 +196,11 @@ This rule ensures that the defined API contains the mandatory extensions needed 
 - x-domains-metadata
 
 ![bpi-validate-api-extensions](https://raw.github.com/bancobpi/style-guide/main/static/bpi-enum-type-validation.png)
+
+## bpi-validate-operation-security
+
+This rule ensures that the defined API contains the mandatory extensions needed in order to describe the necessary additional information of the API:
+- x-fast-api-metadata
+- x-domains-metadata
+
+![bpi-validate-api-extensions](https://raw.github.com/bancobpi/style-guide/main/static/bpi-enum-type-validation.png)
