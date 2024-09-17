@@ -1,13 +1,38 @@
 'use strict';
 
-module.exports = (input, options, context) => {
-
-  // Get the referenced entities
-  const keys = Object.keys(context.documentInventory.graph.nodes);
+function findKeyWithValue(obj, key, value) {
+  // Check if the current object has the key with the desired value
+  if (obj.hasOwnProperty(key) && obj[key] === value) {
+    return true;
+  }
   
+  // Check for arrays
+  if (Array.isArray(obj)) {
+    for (let item of obj) {
+      if (findKeyWithValue(item, key, value)) {
+        return true;
+      }
+    }
+  }
+  
+  // Traverse the object properties
+  for (let k in obj) {
+    if (obj[k] && typeof obj[k] === 'object') {
+      // Recursively search in nested objects
+      if (findKeyWithValue(obj[k], key, value)) {
+        return true;
+      }
+    }
+  }
+  
+  // Return false if key-value pair is not found
+  return false;
+}
 
+module.exports = (input, options, context) => {
+  
   // Validates if some of the entities is an account canonical type
-  if(keys.some(key => key.includes("canonical-types-accounts"))) {
+  if(findKeyWithValue(input, "x-bpi-project-origin", "canonical-types-accounts")) {
     let gasContasValue = null;
 
     if(input["x-fast-operation-profiling"] !== undefined) {

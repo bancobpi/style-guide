@@ -199,6 +199,8 @@ This rule ensures that the defined API contains the mandatory extensions needed 
 
 ## bpi-validate-operation-security
 
+This rule validates if a certain operation references an account canonical type 
+
 This rule ensures that the defined API contains the mandatory extensions needed in order to describe the necessary additional information of the API:
 - x-fast-api-metadata
 - x-domains-metadata
