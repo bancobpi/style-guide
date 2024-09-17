@@ -199,10 +199,28 @@ This rule ensures that the defined API contains the mandatory extensions needed 
 
 ## bpi-validate-operation-security
 
-This rule validates if a certain operation references an account canonical type 
+This rule validates if a certain operation that references an account canonical type in the request or response body has the necessary metadata.
 
-This rule ensures that the defined API contains the mandatory extensions needed in order to describe the necessary additional information of the API:
-- x-fast-api-metadata
-- x-domains-metadata
+When the operation references an account canonical type, the developer should validate if the operation should call GasContas (that runs inside the Access Manager plugin). To do so, it is necessary to include the following extension in the operation:
 
-![bpi-validate-api-extensions](https://raw.github.com/bancobpi/style-guide/main/static/bpi-enum-type-validation.png)
+```yaml
+x-fast-operation-profiling:
+  - functionality: security
+    properties:
+      - key: gasContas
+        value: true
+```
+
+If the current operation has the property gasContas defined as true, it is also necessary to indicate what is the id of the rule that is going to be validated (whatCondition). In order to apply that validation, it is necessary to include the property whatCondition in the extension too:
+
+```yaml
+x-fast-operation-profiling:
+  - functionality: security
+    properties:
+      - key: gasContas
+        value: true
+      - key: whatCondition
+        value: idWhatCondition
+```
+
+Please consult more information in the following link: https://code.pages.ks.gbpiweb.loc/472-cloud-core/472-fastdocumentation-v1/30.implementing/05.pre-requirements/30.configure-metadata.html#22-x-fast-operation-profiling
