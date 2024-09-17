@@ -6,6 +6,7 @@ functions:
   - validate-api-extension
   - validate-link-self-body
   - validate-attribute-id
+  - validate-operation-security
 
 rules:
   bpi-request-get-or-delete-no-body-oas3:
@@ -175,3 +176,12 @@ rules:
       function: validate-api-extension
       functionOptions:
         extensions: ["x-fast-api-metadata", "x-domains-metadata"]
+
+  bpi-validate-operation-security:
+    description: When an operation references an account canonical type, it should contain some security metadata.
+    message: "{{error}}"
+    documentationUrl: https://bancobpi.stoplight.io/docs/style-guide/b66c26f6a6048-schema#bpi-validate-operation-security
+    severity: warn
+    given: "$.paths.*.*"
+    then:
+      function: validate-operation-security
